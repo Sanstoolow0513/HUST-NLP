@@ -1,0 +1,14 @@
+2025-0415 19:00:47 DEBUG    word_embeds.weight: torch.Size([5168, 100]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.weight_ih_l0: torch.Size([400, 100]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.weight_hh_l0: torch.Size([400, 100]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.bias_ih_l0: torch.Size([400]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.bias_hh_l0: torch.Size([400]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([400]), require_grad=True
+2025-0415 19:00:47 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([400]), require_grad=True
+2025-0415 19:00:47 DEBUG    hidden2tag.weight: torch.Size([4, 200]), require_grad=True
+2025-0415 19:00:47 DEBUG    hidden2tag.bias: torch.Size([4]), require_grad=True
+2025-0415 19:00:47 DEBUG    crf.start_transitions: torch.Size([4]), require_grad=True
+2025-0415 19:00:47 DEBUG    crf.end_transitions: torch.Size([4]), require_grad=True
+2025-0415 19:00:47 DEBUG    crf.transitions: torch.Size([4, 4]), require_grad=True
