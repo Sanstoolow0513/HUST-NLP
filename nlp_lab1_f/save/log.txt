@@ -1,0 +1,78 @@
+2025-0416 17:26:04 DEBUG    word_embeds.weight: torch.Size([5168, 100]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.weight_ih_l0: torch.Size([400, 100]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.weight_hh_l0: torch.Size([400, 100]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.bias_ih_l0: torch.Size([400]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.bias_hh_l0: torch.Size([400]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([400]), require_grad=True
+2025-0416 17:26:04 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([400]), require_grad=True
+2025-0416 17:26:04 DEBUG    hidden2tag.weight: torch.Size([4, 200]), require_grad=True
+2025-0416 17:26:04 DEBUG    hidden2tag.bias: torch.Size([4]), require_grad=True
+2025-0416 17:26:04 DEBUG    crf.start_transitions: torch.Size([4]), require_grad=True
+2025-0416 17:26:04 DEBUG    crf.end_transitions: torch.Size([4]), require_grad=True
+2025-0416 17:26:04 DEBUG    crf.transitions: torch.Size([4, 4]), require_grad=True
+2025-0416 17:26:45 DEBUG    epoch 0-step 100 loss: 24.974437
+2025-0416 17:27:23 DEBUG    epoch 0-step 200 loss: 12.401551
+2025-0416 17:27:58 DEBUG    epoch 0-step 300 loss: 9.176624
+2025-0416 17:28:31 DEBUG    epoch 0-step 400 loss: 7.438267
+2025-0416 17:29:08 DEBUG    epoch 0-step 500 loss: 6.339019
+2025-0416 17:29:44 DEBUG    epoch 0-step 600 loss: 5.616913
+2025-0416 17:29:58 INFO     precision: 0.921486
+2025-0416 17:29:58 INFO     recall: 0.915618
+2025-0416 17:29:58 INFO     fscore: 0.918542
+2025-0416 17:29:58 INFO     model has been saved in  ./save/model_epoch0.pkl
+2025-0416 17:30:40 DEBUG    epoch 1-step 100 loss: 4.354541
+2025-0416 17:31:23 DEBUG    epoch 1-step 200 loss: 4.249874
+2025-0416 17:32:10 DEBUG    epoch 1-step 300 loss: 3.979778
+2025-0416 17:32:50 DEBUG    epoch 1-step 400 loss: 3.814798
+2025-0416 17:33:22 DEBUG    epoch 1-step 500 loss: 3.664860
+2025-0416 17:33:52 DEBUG    epoch 1-step 600 loss: 3.536845
+2025-0416 17:34:06 INFO     precision: 0.940510
+2025-0416 17:34:06 INFO     recall: 0.937167
+2025-0416 17:34:06 INFO     fscore: 0.938835
+2025-0416 17:34:06 INFO     model has been saved in  ./save/model_epoch1.pkl
+2025-0416 17:34:44 DEBUG    epoch 2-step 100 loss: 2.671581
+2025-0416 17:35:16 DEBUG    epoch 2-step 200 loss: 2.632324
+2025-0416 17:35:47 DEBUG    epoch 2-step 300 loss: 2.712230
+2025-0416 17:36:18 DEBUG    epoch 2-step 400 loss: 2.701504
+2025-0416 17:37:02 DEBUG    epoch 2-step 500 loss: 2.688350
+2025-0416 17:37:39 DEBUG    epoch 2-step 600 loss: 2.638427
+2025-0416 17:37:54 INFO     precision: 0.947756
+2025-0416 17:37:54 INFO     recall: 0.943054
+2025-0416 17:37:54 INFO     fscore: 0.945399
+2025-0416 17:37:54 INFO     model has been saved in  ./save/model_epoch2.pkl
+2025-0416 17:38:30 DEBUG    epoch 3-step 100 loss: 1.986451
+2025-0416 17:39:00 DEBUG    epoch 3-step 200 loss: 1.981206
+2025-0416 17:39:29 DEBUG    epoch 3-step 300 loss: 2.031765
+2025-0416 17:39:58 DEBUG    epoch 3-step 400 loss: 2.087825
+2025-0416 17:40:25 DEBUG    epoch 3-step 500 loss: 2.118604
+2025-0416 17:40:53 DEBUG    epoch 3-step 600 loss: 2.149944
+2025-0416 17:41:03 INFO     precision: 0.950295
+2025-0416 17:41:03 INFO     recall: 0.947867
+2025-0416 17:41:03 INFO     fscore: 0.949080
+2025-0416 17:41:03 INFO     model has been saved in  ./save/model_epoch3.pkl
+2025-0416 17:41:46 DEBUG    epoch 4-step 100 loss: 1.531386
+2025-0416 17:42:26 DEBUG    epoch 4-step 200 loss: 1.580668
+2025-0416 17:43:21 DEBUG    epoch 4-step 300 loss: 1.670278
+2025-0416 17:44:04 DEBUG    epoch 4-step 400 loss: 1.724690
+2025-0416 17:44:43 DEBUG    epoch 4-step 500 loss: 1.793439
+2025-0416 17:45:14 DEBUG    epoch 4-step 600 loss: 1.806975
+2025-0416 17:45:26 INFO     precision: 0.949631
+2025-0416 17:45:26 INFO     recall: 0.947978
+2025-0416 17:45:26 INFO     fscore: 0.948804
+2025-0416 17:45:26 INFO     model has been saved in  ./save/model_epoch4.pkl
+2025-0416 17:45:58 DEBUG    epoch 5-step 100 loss: 1.272013
+2025-0416 17:46:24 DEBUG    epoch 5-step 200 loss: 1.316928
+2025-0416 17:46:53 DEBUG    epoch 5-step 300 loss: 1.451508
+2025-0416 17:47:19 DEBUG    epoch 5-step 400 loss: 1.485365
+2025-0416 17:47:48 DEBUG    epoch 5-step 500 loss: 1.555008
+2025-0416 17:48:17 DEBUG    epoch 5-step 600 loss: 1.598917
+2025-0416 17:48:28 INFO     precision: 0.952894
+2025-0416 17:48:28 INFO     recall: 0.950459
+2025-0416 17:48:28 INFO     fscore: 0.951675
+2025-0416 17:48:28 INFO     model has been saved in  ./save/model_epoch5.pkl
+2025-0416 17:49:00 DEBUG    epoch 6-step 100 loss: 1.133465
+2025-0416 17:49:29 DEBUG    epoch 6-step 200 loss: 1.150375
+2025-0416 17:49:57 DEBUG    epoch 6-step 300 loss: 1.279314
+2025-0416 17:50:24 DEBUG    epoch 6-step 400 loss: 1.322856
