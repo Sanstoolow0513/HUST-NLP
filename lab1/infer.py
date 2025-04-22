@@ -2,7 +2,7 @@ import torch
 import pickle
 
 if __name__ == '__main__':
-    model = torch.load('save/model.pkl', map_location=torch.device('cpu'))
+    model = torch.load('save/model_epoch9.pkl', map_location=torch.device('cpu'))
     output = open('cws_result.txt', 'w', encoding='utf-8')
 
     with open('data/datasave.pkl', 'rb') as inp:
