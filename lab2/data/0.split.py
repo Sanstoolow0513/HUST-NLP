@@ -1,6 +1,6 @@
 corpus_file = 'RMRB_NER_CORPUS.txt'
 corpus = []
-with open(corpus_file, 'r')as f:
+with open(corpus_file, 'r', encoding='utf-8')as f:
     record = []
     for line in f:
         if line != '\n':
@@ -28,7 +28,7 @@ test_file = 'ner_test.txt'
 
 for split_file, split_corpus in zip([train_file, valid_file, test_file],
                                     [train, valid, test]):
-    with open(split_file, 'w')as f:
+    with open(split_file, 'w', encoding='utf-8')as f:  # Added encoding
         for sentence in split_corpus:
             for word, label in sentence:
                 f.write(word)
