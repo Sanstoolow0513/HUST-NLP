@@ -15,7 +15,7 @@ if __name__ == '__main__':
         x_test = pickle.load(inp)
         y_test = pickle.load(inp)
 
-    with open('data/test.txt', 'r', encoding='utf-8') as f:
+    with open('data/test_data.txt', 'r', encoding='utf-8') as f:
         for test in f:
             flag = False
             test = test.strip()
