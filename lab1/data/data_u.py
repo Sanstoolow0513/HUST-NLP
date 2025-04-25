@@ -1,6 +1,8 @@
 import codecs
 from sklearn.model_selection import train_test_split
 import pickle
+from collections import Counter
+import matplotlib.pyplot as plt  # 用于可视化
 
 INPUT_DATA = "train.txt"
 SAVE_PATH = "./datasave.pkl"
@@ -28,6 +30,36 @@ def getList(input_str):
         outpout_str.extend(M_list)
         outpout_str.append(tag2id['E'])
     return outpout_str
+
+
+def length_group(length):
+    '''
+    根据句子长度分组
+    :param length: 句子长度
+    :return: 分组类别
+    '''
+    if length <= 5:
+        return 0
+    elif length <= 10:
+        return 1
+    elif length <= 20:
+        return 2
+    else:
+        return 3
+
+
+def visualize_length_distribution(lengths):
+    '''
+    可视化句子长度分布
+    :param lengths: 所有句子的长度列表
+    '''
+    plt.figure(figsize=(10, 6))
+    plt.hist(lengths, bins=30, color='skyblue', edgecolor='black')
+    plt.title("Sentence Length Distribution", fontsize=16)
+    plt.xlabel("Sentence Length", fontsize=14)
+    plt.ylabel("Frequency", fontsize=14)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.show()
 
 
 def handle_data():
@@ -68,7 +100,25 @@ def handle_data():
     print([id2word[i] for i in x_data[0]])
     print(y_data[0])
     print([id2tag[i] for i in y_data[0]])
-    x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.1, random_state=43)
+    
+    # 统计句子长度分布
+    sentence_lengths = [len(s) for s in x_data]
+    length_counts = Counter(sentence_lengths)
+    print(length_counts)  # 打印每种长度的句子数量
+
+    # 可视化句子长度分布
+    visualize_length_distribution(sentence_lengths)
+
+    # 根据句子长度分组
+    length_groups = [length_group(len(s)) for s in x_data]
+
+    # 在handle_data函数中改进数据划分
+    x_train, x_test, y_train, y_test = train_test_split(
+        x_data, y_data, 
+        test_size=0.2,  # 增加测试集比例
+        random_state=42,
+        stratify=length_groups  # 使用分组后的类别进行分层抽样
+    )
     with open(SAVE_PATH, 'wb') as outp:
         pickle.dump(word2id, outp)
         pickle.dump(id2word, outp)

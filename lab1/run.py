@@ -7,14 +7,15 @@ from torch.utils.data import DataLoader
 from torch.optim import Adam
 from model import CWS
 from dataloader import Sentence
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 def get_param():
     parser = argparse.ArgumentParser()
     parser.add_argument('--embedding_dim', type=int, default=100)
-    parser.add_argument('--lr', type=float, default=0.005)
+    parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--max_epoch', type=int, default=10)
-    parser.add_argument('--batch_size', type=int, default=128)
-    parser.add_argument('--hidden_dim', type=int, default=200)
+    parser.add_argument('--batch_size', type=int, default=256)
+    parser.add_argument('--hidden_dim', type=int, default=400)
     parser.add_argument('--cuda', action='store_true', default=False)
     return parser.parse_args()
 
@@ -73,7 +74,7 @@ def main(args):
     for name, param in model.named_parameters():
         logging.debug('%s: %s, require_grad=%s' % (name, str(param.shape), str(param.requires_grad)))
 
-    optimizer = Adam(model.parameters(), lr=args.lr)
+    optimizer = Adam(model.parameters(), lr=args.lr, weight_decay=1e-5)
 
     train_data = DataLoader(
         dataset=Sentence(x_train, y_train),
