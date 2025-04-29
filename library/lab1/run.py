@@ -11,12 +11,13 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 def get_param():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--embedding_dim', type=int, default=100)
-    parser.add_argument('--lr', type=float, default=0.001)
-    parser.add_argument('--max_epoch', type=int, default=10)
-    parser.add_argument('--batch_size', type=int, default=256)
-    parser.add_argument('--hidden_dim', type=int, default=400)
+    parser.add_argument('--embedding_dim', type=int, default=200)  # 增加embedding维度
+    parser.add_argument('--lr', type=float, default=0.001)  # 调整学习率
+    parser.add_argument('--max_epoch', type=int, default=20)  # 增加训练轮数
+    parser.add_argument('--batch_size', type=int, default=64)  # 调整batch大小
+    parser.add_argument('--hidden_dim', type=int, default=300)  # 增加隐藏层维度
     parser.add_argument('--cuda', action='store_true', default=False)
+    parser.add_argument('--weight_decay', type=float, default=1e-5)  # 添加权重衰减
     return parser.parse_args()
 
 
@@ -74,7 +75,11 @@ def main(args):
     for name, param in model.named_parameters():
         logging.debug('%s: %s, require_grad=%s' % (name, str(param.shape), str(param.requires_grad)))
 
-    optimizer = Adam(model.parameters(), lr=args.lr, weight_decay=1e-5)
+    # 使用Adam优化器并添加权重衰减
+    optimizer = Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    
+    # 添加学习率调度器
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=2, factor=0.5)
 
     train_data = DataLoader(
         dataset=Sentence(x_train, y_train),
@@ -139,6 +144,8 @@ def main(args):
             if len(right_predict) != 0:
                 precision = float(len(right_predict)) / len(entity_predict)
                 recall = float(len(right_predict)) / len(entity_label)
+                f_score = (2 * precision * recall) / (precision + recall)
+                scheduler.step(1 - f_score)  # 根据F1分数调整学习率
                 logging.info("precision: %f" % precision)
                 logging.info("recall: %f" % recall)
                 logging.info("fscore: %f" % ((2 * precision * recall) / (precision + recall)))
