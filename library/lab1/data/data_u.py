@@ -67,10 +67,16 @@ def handle_data():
     处理数据，并保存至savepath
     :return:
     '''
+    # 添加额外特征，如字符类型特征（数字、英文、中文等）
     x_data = []
+    x_char_type = []  # 字符类型特征
     y_data = []
     wordnum = 0
     line_num = 0
+    
+    # 字符类型映射
+    char_type_map = {'CN': 0, 'EN': 1, 'NUM': 2, 'PUNC': 3, 'OTHER': 4}
+    
     with open(INPUT_DATA, 'r', encoding="utf-8") as ifp:
         for line in ifp:
             line_num = line_num + 1
@@ -89,12 +95,31 @@ def handle_data():
                     line_x.append(wordnum)
                     wordnum = wordnum + 1
             x_data.append(line_x)
-
+        
             lineArr = line.split()
             line_y = []
             for item in lineArr:
                 line_y.extend(getList(item))
             y_data.append(line_y)
+        
+            # 添加字符类型特征
+            for i in range(len(line)):
+                if line[i] == " ":
+                    continue
+                
+                # 添加字符类型判断
+                if '\u4e00' <= line[i] <= '\u9fff':
+                    char_type = char_type_map['CN']
+                elif 'a' <= line[i] <= 'z' or 'A' <= line[i] <= 'Z':
+                    char_type = char_type_map['EN']
+                elif '0' <= line[i] <= '9':
+                    char_type = char_type_map['NUM']
+                elif line[i] in ',.!?;:，。！？；：""\'\'':
+                    char_type = char_type_map['PUNC']
+                else:
+                    char_type = char_type_map['OTHER']
+                
+                x_char_type.append(char_type)
 
     print(x_data[0])
     print([id2word[i] for i in x_data[0]])
