@@ -6,11 +6,13 @@ import matplotlib.pyplot as plt  # 用于可视化
 
 INPUT_DATA = "train.txt"
 SAVE_PATH = "./datasave.pkl"
-id2tag = ['B', 'M', 'E', 'S']  # B：分词头部 M：分词词中 E：分词词尾 S：独立成词
+id2tag = ['B', 'M', 'E', 'S']
 tag2id = {'B': 0, 'M': 1, 'E': 2, 'S': 3}
 word2id = {}
 id2word = []
-
+# 字符类型映射
+char_type_map = {'CN': 0, 'EN': 1, 'NUM': 2, 'PUNC': 3, 'OTHER': 4}
+char_type_vocab_size = len(char_type_map) # 添加字符类型词汇大小
 
 def getList(input_str):
     '''
@@ -67,59 +69,72 @@ def handle_data():
     处理数据，并保存至savepath
     :return:
     '''
-    # 添加额外特征，如字符类型特征（数字、英文、中文等）
     x_data = []
-    x_char_type = []  # 字符类型特征
     y_data = []
+    x_char_types_data = [] # 修改变量名以包含所有样本
     wordnum = 0
     line_num = 0
-    
-    # 字符类型映射
-    char_type_map = {'CN': 0, 'EN': 1, 'NUM': 2, 'PUNC': 3, 'OTHER': 4}
-    
+
     with open(INPUT_DATA, 'r', encoding="utf-8") as ifp:
         for line in ifp:
             line_num = line_num + 1
             line = line.strip()
             if not line:
                 continue
+            
             line_x = []
+            line_char_types = [] # 当前行的字符类型
+            processed_chars = [] # 处理后的字符（去空格）
+
             for i in range(len(line)):
-                if line[i] == " ":
+                char = line[i]
+                if char == " ":
                     continue
-                if (line[i] in id2word):
-                    line_x.append(word2id[line[i]])
+                processed_chars.append(char) # 添加有效字符
+                
+                # 处理 word2id
+                if char in word2id: # Use word2id directly
+                    line_x.append(word2id[char])
                 else:
-                    id2word.append(line[i])
-                    word2id[line[i]] = wordnum
+                    id2word.append(char)
+                    word2id[char] = wordnum
                     line_x.append(wordnum)
                     wordnum = wordnum + 1
-            x_data.append(line_x)
-        
-            lineArr = line.split()
-            line_y = []
-            for item in lineArr:
-                line_y.extend(getList(item))
-            y_data.append(line_y)
-        
-            # 添加字符类型特征
-            for i in range(len(line)):
-                if line[i] == " ":
-                    continue
-                
-                # 添加字符类型判断
-                if '\u4e00' <= line[i] <= '\u9fff':
+                    
+                # 处理字符类型
+                if '\u4e00' <= char <= '\u9fff':
                     char_type = char_type_map['CN']
-                elif 'a' <= line[i] <= 'z' or 'A' <= line[i] <= 'Z':
+                elif 'a' <= char <= 'z' or 'A' <= char <= 'Z':
                     char_type = char_type_map['EN']
-                elif '0' <= line[i] <= '9':
+                elif '0' <= char <= '9':
                     char_type = char_type_map['NUM']
-                elif line[i] in ',.!?;:，。！？；：""\'\'':
+                # 更全面的标点符号判断 (示例)
+                elif char in ',.!?;:，。！？；：\'"()[]{}<>《》“”‘’': 
                     char_type = char_type_map['PUNC']
                 else:
                     char_type = char_type_map['OTHER']
-                
-                x_char_type.append(char_type)
+                line_char_types.append(char_type)
+
+            # 确保 line_x 和 line_char_types 长度一致
+            assert len(line_x) == len(line_char_types), f"Length mismatch in line {line_num}"
+
+            x_data.append(line_x)
+            x_char_types_data.append(line_char_types) # 添加当前行的类型列表
+        
+            # 处理 y_data (标签)
+            lineArr = line.split()
+            line_y = []
+            current_len = 0
+            for item in lineArr:
+                tags = getList(item)
+                line_y.extend(tags)
+                current_len += len(item)
+            
+            # 验证处理后的字符数是否与标签数匹配
+            assert len(processed_chars) == len(line_y), \
+                f"Mismatch between processed chars ({len(processed_chars)}) and tags ({len(line_y)}) in line {line_num}: '{''.join(processed_chars)}' vs tags"
+
+            y_data.append(line_y)
 
     print(x_data[0])
     print([id2word[i] for i in x_data[0]])
@@ -137,22 +152,26 @@ def handle_data():
     # 根据句子长度分组
     length_groups = [length_group(len(s)) for s in x_data]
 
-    # 在handle_data函数中改进数据划分
-    x_train, x_test, y_train, y_test = train_test_split(
-        x_data, y_data, 
-        test_size=0.2,  # 增加测试集比例
+    # 改进数据划分，同时划分 x_char_types_data
+    x_train, x_test, y_train, y_test, x_char_types_train, x_char_types_test = train_test_split(
+        x_data, y_data, x_char_types_data, # 添加 x_char_types_data
+        test_size=0.2,
         random_state=42,
-        stratify=length_groups  # 使用分组后的类别进行分层抽样
+        stratify=length_groups
     )
+    
     with open(SAVE_PATH, 'wb') as outp:
         pickle.dump(word2id, outp)
         pickle.dump(id2word, outp)
         pickle.dump(tag2id, outp)
         pickle.dump(id2tag, outp)
+        pickle.dump(char_type_vocab_size, outp) # 保存字符类型词汇大小
         pickle.dump(x_train, outp)
         pickle.dump(y_train, outp)
+        pickle.dump(x_char_types_train, outp) # 保存训练集字符类型
         pickle.dump(x_test, outp)
         pickle.dump(y_test, outp)
+        pickle.dump(x_char_types_test, outp) # 保存测试集字符类型
 
 
 if __name__ == "__main__":
