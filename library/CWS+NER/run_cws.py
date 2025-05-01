@@ -16,11 +16,14 @@ def get_param():
     parser.add_argument('--batch_size', type=int, default=512)
     parser.add_argument('--hidden_dim', type=int, default=200)
     parser.add_argument('--cuda', action='store_true', default=False)
+    parser.add_argument('--save_dir', type=str, default='save/CWS')
     return parser.parse_args()
 
 
-def set_logger():
-    log_file = os.path.join('save', 'log.txt')
+def set_logger(save_dir):
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    log_file = os.path.join(save_dir, 'log.txt')
     logging.basicConfig(
         format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.DEBUG,
@@ -57,7 +60,7 @@ def entity_split(x, y, id2tag, entities, cur):
 def main(args):
     use_cuda = args.cuda and torch.cuda.is_available()
 
-    with open('data/datasave.pkl', 'rb') as inp:
+    with open('data/CWS/data/datasave.pkl', 'rb') as inp:
         word2id = pickle.load(inp)
         id2word = pickle.load(inp)
         tag2id = pickle.load(inp)
@@ -147,11 +150,15 @@ def main(args):
                 logging.info("fscore: 0")
             model.train()
 
-        path_name = "./save/model_epoch" + str(epoch) + ".pkl"
+        # 保存模型
+        if not os.path.exists(args.save_dir):
+            os.makedirs(args.save_dir)
+        path_name = os.path.join(args.save_dir, "model_epoch" + str(epoch) + ".pkl")
         torch.save(model, path_name)
-        logging.info("model has been saved in  %s" % path_name)
+        logging.info("model has been saved in %s" % path_name)
 
 
 if __name__ == '__main__':
-    set_logger()
-    main(get_param())
+    args = get_param()
+    set_logger(args.save_dir)
+    main(args)

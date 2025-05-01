@@ -9,7 +9,7 @@ SAVE_PATH = "./ner_datasave.pkl"
 
 # create id2tag
 unique = set()
-with open('ner_train.txt', 'r')as f:
+with open('ner_train.txt', 'r', encoding="utf-8")as f:
     for line in f:
         try:
             unique.update([line.strip('\n').split(' ')[1]])

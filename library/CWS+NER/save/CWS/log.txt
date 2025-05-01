@@ -1,0 +1,64 @@
+2025-0502 00:09:51 DEBUG    word_embeds.weight: torch.Size([5168, 100]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.weight_ih_l0: torch.Size([400, 100]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.weight_hh_l0: torch.Size([400, 100]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.bias_ih_l0: torch.Size([400]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.bias_hh_l0: torch.Size([400]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([400]), require_grad=True
+2025-0502 00:09:51 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([400]), require_grad=True
+2025-0502 00:09:51 DEBUG    hidden2tag.weight: torch.Size([4, 200]), require_grad=True
+2025-0502 00:09:51 DEBUG    hidden2tag.bias: torch.Size([4]), require_grad=True
+2025-0502 00:09:51 DEBUG    crf.start_transitions: torch.Size([4]), require_grad=True
+2025-0502 00:09:51 DEBUG    crf.end_transitions: torch.Size([4]), require_grad=True
+2025-0502 00:09:51 DEBUG    crf.transitions: torch.Size([4, 4]), require_grad=True
+2025-0502 00:10:37 DEBUG    epoch 0-step 100 loss: 23.561824
+2025-0502 00:11:16 INFO     precision: 0.891509
+2025-0502 00:11:16 INFO     recall: 0.880517
+2025-0502 00:11:16 INFO     fscore: 0.885979
+2025-0502 00:11:16 INFO     model has been saved in save/CWS\model_epoch0.pkl
+2025-0502 00:11:54 DEBUG    epoch 1-step 100 loss: 8.106519
+2025-0502 00:12:14 INFO     precision: 0.920811
+2025-0502 00:12:14 INFO     recall: 0.916617
+2025-0502 00:12:14 INFO     fscore: 0.918709
+2025-0502 00:12:14 INFO     model has been saved in save/CWS\model_epoch1.pkl
+2025-0502 00:12:49 DEBUG    epoch 2-step 100 loss: 5.137511
+2025-0502 00:13:08 INFO     precision: 0.938010
+2025-0502 00:13:08 INFO     recall: 0.932279
+2025-0502 00:13:08 INFO     fscore: 0.935136
+2025-0502 00:13:09 INFO     model has been saved in save/CWS\model_epoch2.pkl
+2025-0502 00:13:39 DEBUG    epoch 3-step 100 loss: 3.678828
+2025-0502 00:13:59 INFO     precision: 0.945490
+2025-0502 00:13:59 INFO     recall: 0.939573
+2025-0502 00:13:59 INFO     fscore: 0.942522
+2025-0502 00:13:59 INFO     model has been saved in save/CWS\model_epoch3.pkl
+2025-0502 00:14:35 DEBUG    epoch 4-step 100 loss: 2.802683
+2025-0502 00:14:54 INFO     precision: 0.950344
+2025-0502 00:14:54 INFO     recall: 0.945312
+2025-0502 00:14:54 INFO     fscore: 0.947822
+2025-0502 00:14:54 INFO     model has been saved in save/CWS\model_epoch4.pkl
+2025-0502 00:15:25 DEBUG    epoch 5-step 100 loss: 2.224118
+2025-0502 00:15:46 INFO     precision: 0.951179
+2025-0502 00:15:46 INFO     recall: 0.948608
+2025-0502 00:15:46 INFO     fscore: 0.949892
+2025-0502 00:15:46 INFO     model has been saved in save/CWS\model_epoch5.pkl
+2025-0502 00:16:22 DEBUG    epoch 6-step 100 loss: 1.817936
+2025-0502 00:16:43 INFO     precision: 0.950851
+2025-0502 00:16:43 INFO     recall: 0.949126
+2025-0502 00:16:43 INFO     fscore: 0.949988
+2025-0502 00:16:43 INFO     model has been saved in save/CWS\model_epoch6.pkl
+2025-0502 00:17:16 DEBUG    epoch 7-step 100 loss: 1.500392
+2025-0502 00:17:35 INFO     precision: 0.953973
+2025-0502 00:17:35 INFO     recall: 0.951607
+2025-0502 00:17:35 INFO     fscore: 0.952789
+2025-0502 00:17:35 INFO     model has been saved in save/CWS\model_epoch7.pkl
+2025-0502 00:18:08 DEBUG    epoch 8-step 100 loss: 1.247735
+2025-0502 00:18:26 INFO     precision: 0.954847
+2025-0502 00:18:26 INFO     recall: 0.952903
+2025-0502 00:18:26 INFO     fscore: 0.953874
+2025-0502 00:18:26 INFO     model has been saved in save/CWS\model_epoch8.pkl
+2025-0502 00:19:00 DEBUG    epoch 9-step 100 loss: 1.071050
+2025-0502 00:19:20 INFO     precision: 0.953196
+2025-0502 00:19:20 INFO     recall: 0.954643
+2025-0502 00:19:20 INFO     fscore: 0.953919
+2025-0502 00:19:20 INFO     model has been saved in save/CWS\model_epoch9.pkl
