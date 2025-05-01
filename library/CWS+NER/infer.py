@@ -1,11 +1,22 @@
 import torch
 import pickle
+import argparse
 
-if __name__ == '__main__':
-    model = torch.load('save/model_epoch9.pkl', map_location=torch.device('cpu'))
-    output = open('cws_result.txt', 'w', encoding='utf-8')
+def get_param():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model', type=str, default='save/CWS/model_epoch9.pkl', help='模型路径')
+    parser.add_argument('--data', type=str, default='data/CWS/data/datasave.pkl', help='数据路径')
+    parser.add_argument('--test_file', type=str, default='data/CWS/data/test.txt', help='测试文件路径')
+    parser.add_argument('--output_file', type=str, default='cws_result.txt', help='输出文件路径')
+    return parser.parse_args()
 
-    with open('data/datasave.pkl', 'rb') as inp:
+def main():
+    args = get_param()
+    
+    model = torch.load(args.model, map_location=torch.device('cpu'))
+    output = open(args.output_file, 'w', encoding='utf-8')
+
+    with open(args.data, 'rb') as inp:
         word2id = pickle.load(inp)
         id2word = pickle.load(inp)
         tag2id = pickle.load(inp)
@@ -15,10 +26,12 @@ if __name__ == '__main__':
         x_test = pickle.load(inp)
         y_test = pickle.load(inp)
 
-    with open('data/test_data.txt', 'r', encoding='utf-8') as f:
+    with open(args.test_file, 'r', encoding='utf-8') as f:
         for test in f:
-            flag = False
             test = test.strip()
+            if not test:
+                print(file=output)
+                continue
 
             x = torch.LongTensor(1, len(test))
             mask = torch.ones_like(x, dtype=torch.uint8)
@@ -35,3 +48,9 @@ if __name__ == '__main__':
                 if id2tag[predict[i]] in ['E', 'S']:
                     print(' ', end='', file=output)
             print(file=output)
+    
+    output.close()
+    print(f"结果已保存到 {args.output_file}")
+
+if __name__ == '__main__':
+    main()

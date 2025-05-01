@@ -1,0 +1,74 @@
+2025-0502 00:19:56 DEBUG    word_embeds.weight: torch.Size([4624, 100]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.weight_ih_l0: torch.Size([400, 100]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.weight_hh_l0: torch.Size([400, 100]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.bias_ih_l0: torch.Size([400]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.bias_hh_l0: torch.Size([400]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([400]), require_grad=True
+2025-0502 00:19:56 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([400]), require_grad=True
+2025-0502 00:19:56 DEBUG    hidden2tag.weight: torch.Size([21, 200]), require_grad=True
+2025-0502 00:19:56 DEBUG    hidden2tag.bias: torch.Size([21]), require_grad=True
+2025-0502 00:19:56 DEBUG    crf.start_transitions: torch.Size([21]), require_grad=True
+2025-0502 00:19:56 DEBUG    crf.end_transitions: torch.Size([21]), require_grad=True
+2025-0502 00:19:56 DEBUG    crf.transitions: torch.Size([21, 21]), require_grad=True
+2025-0502 00:20:31 DEBUG    epoch 0-step 100 loss: 22.914278
+2025-0502 00:21:07 DEBUG    epoch 0-step 200 loss: 6.907640
+2025-0502 00:21:23 INFO     precision: 0.847996
+2025-0502 00:21:23 INFO     recall: 0.744856
+2025-0502 00:21:23 INFO     f1 score: 0.793087
+2025-0502 00:21:23 INFO     model has been saved in save/NER\model_epoch0.pkl
+2025-0502 00:21:43 DEBUG    epoch 1-step 100 loss: 3.099773
+2025-0502 00:21:59 DEBUG    epoch 1-step 200 loss: 2.581247
+2025-0502 00:22:15 INFO     precision: 0.887525
+2025-0502 00:22:15 INFO     recall: 0.826246
+2025-0502 00:22:15 INFO     f1 score: 0.855790
+2025-0502 00:22:15 INFO     model has been saved in save/NER\model_epoch1.pkl
+2025-0502 00:22:32 DEBUG    epoch 2-step 100 loss: 1.618162
+2025-0502 00:22:49 DEBUG    epoch 2-step 200 loss: 1.476288
+2025-0502 00:23:04 INFO     precision: 0.878435
+2025-0502 00:23:04 INFO     recall: 0.862369
+2025-0502 00:23:04 INFO     f1 score: 0.870328
+2025-0502 00:23:04 INFO     model has been saved in save/NER\model_epoch2.pkl
+2025-0502 00:23:23 DEBUG    epoch 3-step 100 loss: 1.041852
+2025-0502 00:23:39 DEBUG    epoch 3-step 200 loss: 1.037798
+2025-0502 00:23:54 INFO     precision: 0.910982
+2025-0502 00:23:54 INFO     recall: 0.860997
+2025-0502 00:23:54 INFO     f1 score: 0.885284
+2025-0502 00:23:54 INFO     model has been saved in save/NER\model_epoch3.pkl
+2025-0502 00:24:12 DEBUG    epoch 4-step 100 loss: 0.674098
+2025-0502 00:24:26 DEBUG    epoch 4-step 200 loss: 0.714828
+2025-0502 00:24:39 INFO     precision: 0.891374
+2025-0502 00:24:39 INFO     recall: 0.893004
+2025-0502 00:24:39 INFO     f1 score: 0.892188
+2025-0502 00:24:39 INFO     model has been saved in save/NER\model_epoch4.pkl
+2025-0502 00:24:55 DEBUG    epoch 5-step 100 loss: 0.517701
+2025-0502 00:25:09 DEBUG    epoch 5-step 200 loss: 0.481962
+2025-0502 00:25:22 INFO     precision: 0.909859
+2025-0502 00:25:22 INFO     recall: 0.886145
+2025-0502 00:25:22 INFO     f1 score: 0.897846
+2025-0502 00:25:22 INFO     model has been saved in save/NER\model_epoch5.pkl
+2025-0502 00:25:39 DEBUG    epoch 6-step 100 loss: 0.350210
+2025-0502 00:25:55 DEBUG    epoch 6-step 200 loss: 0.354429
+2025-0502 00:26:09 INFO     precision: 0.915174
+2025-0502 00:26:09 INFO     recall: 0.887974
+2025-0502 00:26:09 INFO     f1 score: 0.901369
+2025-0502 00:26:09 INFO     model has been saved in save/NER\model_epoch6.pkl
+2025-0502 00:26:25 DEBUG    epoch 7-step 100 loss: 0.239988
+2025-0502 00:26:38 DEBUG    epoch 7-step 200 loss: 0.266640
+2025-0502 00:26:51 INFO     precision: 0.901943
+2025-0502 00:26:51 INFO     recall: 0.891632
+2025-0502 00:26:51 INFO     f1 score: 0.896758
+2025-0502 00:26:51 INFO     model has been saved in save/NER\model_epoch7.pkl
+2025-0502 00:27:07 DEBUG    epoch 8-step 100 loss: 0.216252
+2025-0502 00:27:22 DEBUG    epoch 8-step 200 loss: 0.225787
+2025-0502 00:27:38 INFO     precision: 0.906455
+2025-0502 00:27:38 INFO     recall: 0.886145
+2025-0502 00:27:38 INFO     f1 score: 0.896185
+2025-0502 00:27:38 INFO     model has been saved in save/NER\model_epoch8.pkl
+2025-0502 00:27:55 DEBUG    epoch 9-step 100 loss: 0.181947
+2025-0502 00:28:12 DEBUG    epoch 9-step 200 loss: 0.198110
+2025-0502 00:28:27 INFO     precision: 0.905412
+2025-0502 00:28:27 INFO     recall: 0.879744
+2025-0502 00:28:27 INFO     f1 score: 0.892393
+2025-0502 00:28:27 INFO     model has been saved in save/NER\model_epoch9.pkl
