@@ -1,2 +1,0 @@
-pytorch-crf
-scikit-learn
