@@ -31,7 +31,8 @@ def load_model_and_data(model_path, data_path):
 def cws_infer(text, cws_model, cws_word2id, cws_id2tag):
     """中文分词推理"""
     x = torch.LongTensor(1, len(text))
-    mask = torch.ones_like(x, dtype=torch.uint8)
+    # 修改为bool类型
+    mask = torch.ones_like(x, dtype=torch.bool)
     length = [len(text)]
     
     for i in range(len(text)):
@@ -58,8 +59,23 @@ def cws_infer(text, cws_model, cws_word2id, cws_id2tag):
 def ner_infer(text, ner_model, ner_word2id, ner_id2tag):
     """命名实体识别推理"""
     x = torch.LongTensor(1, len(text))
-    mask = torch.ones_like(x, dtype=torch.uint8)
+    # 修改为bool类型
+    mask = torch.ones_like(x, dtype=torch.bool)
     length = [len(text)]
+    
+    # 提取特征（如果模型支持）
+    features = None
+    if hasattr(ner_model, 'feature_dim') and ner_model.feature_dim > 0:
+        features_list = []
+        for i in range(len(text)):
+            char = text[i]
+            is_digit = 1 if char.isdigit() else 0
+            is_alpha = 1 if char.isalpha() and ord(char) < 128 else 0
+            punctuations = set(""",.!?;:()[]<>'\"，。！？；：（）【】《》——……、　""")
+            is_punct = 1 if char in punctuations else 0
+            is_chinese = 1 if '\u4e00' <= char <= '\u9fff' else 0
+            features_list.append([is_digit, is_alpha, is_punct, is_chinese])
+        features = torch.FloatTensor([features_list])
     
     for i in range(len(text)):
         if text[i] in ner_word2id:
@@ -67,18 +83,24 @@ def ner_infer(text, ner_model, ner_word2id, ner_id2tag):
         else:
             x[0, i] = len(ner_word2id)
     
-    predict = ner_model.infer(x, mask, length)[0]
+    # 使用特征进行推理（如果可用）
+    if features is not None:
+        predict = ner_model.infer(x, mask, length, features=features)[0]
+    else:
+        predict = ner_model.infer(x, mask, length)[0]
     
     entities = []
     start, end = -1, -1
     entity_type = None
     
+    # 使用BMES标注解析实体
     for i in range(len(text)):
         tag = ner_id2tag[predict[i]]
+        
         if tag.startswith('B-'):
             start = i
             entity_type = tag[2:]
-        elif tag.startswith('I-') and start != -1 and entity_type == tag[2:]:
+        elif tag.startswith('M-') and start != -1 and entity_type == tag[2:]:
             continue
         elif tag.startswith('E-') and start != -1 and entity_type == tag[2:]:
             end = i
@@ -87,29 +109,9 @@ def ner_infer(text, ner_model, ner_word2id, ner_id2tag):
             entity_type = None
         elif tag.startswith('S-'):
             entities.append((i, i, tag[2:]))
-        elif tag == 'O':
+        else:  # 'O' 或其他标签
             start, end = -1, -1
             entity_type = None
-    
-    # 处理嵌套实体的情况
-    def merge_entities(ner_tags):
-        stack = []
-        merged = []
-        for i, tag in enumerate(ner_tags):
-            if tag.startswith('B-'):
-                if stack:
-                    merged.extend(stack)
-                    stack = []
-                stack.append((i, tag))
-            elif tag.startswith('I-'):
-                if stack:
-                    stack.append((i, tag))
-            else:
-                if stack:
-                    merged.extend(stack)
-                    stack = []
-                merged.append((i, tag))
-        return merged
     
     return entities, predict
 
