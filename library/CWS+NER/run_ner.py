@@ -12,11 +12,13 @@ def get_param():
     parser = argparse.ArgumentParser()
     parser.add_argument('--embedding_dim', type=int, default=100)
     parser.add_argument('--lr', type=float, default=0.005)
-    parser.add_argument('--max_epoch', type=int, default=10)
+    parser.add_argument('--max_epoch', type=int, default=20)
     parser.add_argument('--batch_size', type=int, default=128)
     parser.add_argument('--hidden_dim', type=int, default=200)
     parser.add_argument('--cuda', action='store_true', default=False)
     parser.add_argument('--save_dir', type=str, default='save/NER')
+    # 在训练参数中添加
+    parser.add_argument('--cws_weight', type=float, default=0.5, help='CWS loss权重')
     return parser.parse_args()
 
 

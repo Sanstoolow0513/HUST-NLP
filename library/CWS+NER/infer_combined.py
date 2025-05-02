@@ -6,7 +6,7 @@ import os
 def get_param():
     parser = argparse.ArgumentParser()
     parser.add_argument('--cws_model', type=str, default='save/CWS/model_epoch9.pkl', help='CWS模型路径')
-    parser.add_argument('--ner_model', type=str, default='save/NER/model_epoch9.pkl', help='NER模型路径')
+    parser.add_argument('--ner_model', type=str, default='save/NER/model_epoch19.pkl', help='NER模型路径')
     parser.add_argument('--test_file', type=str, default='data/CWS/data/test_data.txt', help='测试文件路径')
     parser.add_argument('--output_file', type=str, default='combined_result.txt', help='输出文件路径')
     parser.add_argument('--use_ner', action='store_true', default=False, help='是否使用NER结果辅助分词')
@@ -90,6 +90,26 @@ def ner_infer(text, ner_model, ner_word2id, ner_id2tag):
         elif tag == 'O':
             start, end = -1, -1
             entity_type = None
+    
+    # 处理嵌套实体的情况
+    def merge_entities(ner_tags):
+        stack = []
+        merged = []
+        for i, tag in enumerate(ner_tags):
+            if tag.startswith('B-'):
+                if stack:
+                    merged.extend(stack)
+                    stack = []
+                stack.append((i, tag))
+            elif tag.startswith('I-'):
+                if stack:
+                    stack.append((i, tag))
+            else:
+                if stack:
+                    merged.extend(stack)
+                    stack = []
+                merged.append((i, tag))
+        return merged
     
     return entities, predict
 
