@@ -1,0 +1,136 @@
+使用设备: cuda
+加载数据: ../data/datasave.pkl
+数据加载成功。训练集: 156444, 测试集: 17383
+词表大小: 5169, 标签数: 4
+模型结构:
+TransformerSegmenter(
+  (embedding): Embedding(5169, 256, padding_idx=0)
+  (pos_encoder): PositionalEncoding()
+  (layer_norm_emb): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  (dropout_emb): Dropout(p=0.2, inplace=False)
+  (transformer_encoder): TransformerEncoder(
+    (layers): ModuleList(
+      (0-3): 4 x TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+        )
+        (linear1): Linear(in_features=256, out_features=512, bias=True)
+        (dropout): Dropout(p=0.2, inplace=False)
+        (linear2): Linear(in_features=512, out_features=256, bias=True)
+        (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.2, inplace=False)
+        (dropout2): Dropout(p=0.2, inplace=False)
+      )
+    )
+    (norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropout_out): Dropout(p=0.2, inplace=False)
+  (fc): Linear(in_features=256, out_features=4, bias=True)
+  (crf): CRF(num_tags=4)
+)
+
+开始训练...
+Epoch 1/20 | Time: 1269.24s | LR: 0.000500
+  Train Loss: 32.5066
+  Val Loss: 23.5510 | Val Acc: 0.7880 | Val F1: 0.7535
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 2/20 | Time: 1129.99s | LR: 0.000500
+  Train Loss: 20.8622
+  Val Loss: 16.6314 | Val Acc: 0.8420 | Val F1: 0.8150
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 3/20 | Time: 1020.14s | LR: 0.000500
+  Train Loss: 15.7880
+  Val Loss: 13.2246 | Val Acc: 0.8649 | Val F1: 0.8406
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 4/20 | Time: 1022.30s | LR: 0.000500
+  Train Loss: 12.8730
+  Val Loss: 11.0411 | Val Acc: 0.8786 | Val F1: 0.8572
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 5/20 | Time: 1036.40s | LR: 0.000500
+  Train Loss: 11.0995
+  Val Loss: 9.9866 | Val Acc: 0.8848 | Val F1: 0.8661
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 6/20 | Time: 1008.58s | LR: 0.000500
+  Train Loss: 9.9648
+  Val Loss: 8.8026 | Val Acc: 0.8924 | Val F1: 0.8756
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 7/20 | Time: 1044.51s | LR: 0.000500
+  Train Loss: 9.1890
+  Val Loss: 8.2326 | Val Acc: 0.8970 | Val F1: 0.8803
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 8/20 | Time: 1044.65s | LR: 0.000500
+  Train Loss: 8.6278
+  Val Loss: 7.7212 | Val Acc: 0.9010 | Val F1: 0.8854
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 9/20 | Time: 1027.38s | LR: 0.000500
+  Train Loss: 8.2238
+  Val Loss: 7.4851 | Val Acc: 0.9030 | Val F1: 0.8881
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 10/20 | Time: 1017.62s | LR: 0.000500
+  Train Loss: 7.9359
+  Val Loss: 7.1640 | Val Acc: 0.9057 | Val F1: 0.8910
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 11/20 | Time: 1026.48s | LR: 0.000500
+  Train Loss: 7.6983
+  Val Loss: 6.9492 | Val Acc: 0.9077 | Val F1: 0.8940
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 12/20 | Time: 1036.19s | LR: 0.000500
+  Train Loss: 7.5096
+  Val Loss: 6.9827 | Val Acc: 0.9089 | Val F1: 0.8952
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 13/20 | Time: 1033.68s | LR: 0.000500
+  Train Loss: 7.3648
+  Val Loss: 6.7267 | Val Acc: 0.9114 | Val F1: 0.8982
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 14/20 | Time: 1045.14s | LR: 0.000500
+  Train Loss: 7.2465
+  Val Loss: 6.5624 | Val Acc: 0.9124 | Val F1: 0.8996
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 15/20 | Time: 1018.49s | LR: 0.000500
+  Train Loss: 7.1320
+  Val Loss: 6.5059 | Val Acc: 0.9136 | Val F1: 0.9008
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 16/20 | Time: 1014.81s | LR: 0.000500
+  Train Loss: 7.0434
+  Val Loss: 6.4798 | Val Acc: 0.9149 | Val F1: 0.9023
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 17/20 | Time: 1019.52s | LR: 0.000500
+  Train Loss: 6.9711
+  Val Loss: 6.4031 | Val Acc: 0.9166 | Val F1: 0.9041
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 18/20 | Time: 1032.79s | LR: 0.000500
+  Train Loss: 6.8780
+  Val Loss: 6.3536 | Val Acc: 0.9177 | Val F1: 0.9057
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 19/20 | Time: 1048.76s | LR: 0.000500
+  Train Loss: 6.8193
+  Val Loss: 6.3084 | Val Acc: 0.9181 | Val F1: 0.9061
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+Epoch 20/20 | Time: 1039.27s | LR: 0.000500
+  Train Loss: 6.7420
+  Val Loss: 6.3050 | Val Acc: 0.9179 | Val F1: 0.9061
+  模型已保存到: ./saved_models_transformer\transformer_segmenter_best_f1.pth (Best F1)
+------------------------------------------------------------
+训练完成！绘制指标图表...
+训练指标图表已保存到: ./saved_models_transformer\training_metrics_transformer.png
+最佳验证 F1 分数: 0.9061

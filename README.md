@@ -5,15 +5,14 @@
     这里是华中科技大学计算机科学与技术学院本科2022级自然语言处理实验
     本人基于cuda11.0 pytorch1.7.1 vscode进行开发
 
-## 环境准备
+## 基础环境准备
 
-1. 安装 Anaconda
+安装 Anaconda
 
    官方文档：<a href="https://docs.continuum.io/anaconda/install/">anaconda install</a>
 
-2. 搭建虚拟环境并安装 PyTorch
+搭建虚拟环境并安装 PyTorch
 
-    ```shell
     # 创建虚拟环境
     conda create -n nlpcu python=3.7	# 创建名为 nlpcu 的虚拟环境
 
@@ -33,11 +32,9 @@
     conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cpuonly -c pytorch
     ```
 
-    根据各位的cuda版本进行选择
+根据各位的cuda版本进行选择
 
-    ```shell
     pip install -r requirements.txt
-    ```
 
 ## 运行方式
 
@@ -62,4 +59,15 @@
    python infer.py
    ```
 
+   
+
+## transformer环境准备
+
+   ```shell
+   conda create -n transformer python=3.10
+   conda activate transformer
+   pip install -r requirements.txt
+   ```
+
+   通过transformer的官方文档进行安装, 具体可参考：<a href=" 具体可参考：<a href="URL_ADDRESSuggingface.co/docs/transformers/index">transformer</a>
    

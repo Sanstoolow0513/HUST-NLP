@@ -210,11 +210,11 @@ def main(args):
                     pred_tags = predict[i]
                     # entity_split 需要的是 ID 列表，不是 Tensor
                     entity_split(sentence[i, :length[i]].cpu().numpy(), # 转到 CPU 并转为 numpy
-                                 pred_tags, # 直接使用解码后的 tag ID 列表
-                                 id2tag, entity_predict, cur)
+                                pred_tags, # 直接使用解码后的 tag ID 列表
+                                id2tag, entity_predict, cur)
                     entity_split(sentence[i, :length[i]].cpu().numpy(),
-                                 label[i, :length[i]].cpu().numpy(), # 转到 CPU 并转为 numpy
-                                 id2tag, entity_label, cur)
+                                label[i, :length[i]].cpu().numpy(), # 转到 CPU 并转为 numpy
+                                id2tag, entity_label, cur)
                     cur += length[i]
 
 
