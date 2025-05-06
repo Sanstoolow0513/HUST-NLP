@@ -20,17 +20,18 @@ class BertSegmenterInference:
         # 从pkl文件加载映射关系
         try:
             with open(data_pkl_path, 'rb') as f:
-                self.word2id = pickle.load(f)
-                self.id2word = pickle.load(f)
-                self.tag2id = pickle.load(f)
-                self.id2tag = pickle.load(f)
-                # 可以选择性加载 x_train, y_train, x_test, y_test，如果需要的话
-                # x_train = pickle.load(f)
-                # y_train = pickle.load(f)
-                # x_test = pickle.load(f)
-                # y_test = pickle.load(f)
+                processed_data = pickle.load(f)  # 加载整个字典
+                self.word2id = processed_data['word2id']
+                self.id2word = processed_data['id2word']
+                self.tag2id = processed_data['tag2id']
+                self.id2tag = processed_data['id2tag']
+                # 可以选择性加载其他数据
+                # self.pad_id = processed_data.get('pad_id', 0)
         except FileNotFoundError:
             print(f"错误：无法找到数据文件 {data_pkl_path}。请确保路径正确并已运行数据处理脚本。")
+            sys.exit(1)
+        except KeyError as e:
+            print(f"错误：数据文件 {data_pkl_path} 中缺少键 '{e}'。请确保 data_u.py 正确保存了所有需要的信息。")
             sys.exit(1)
         except Exception as e:
             print(f"加载数据文件 {data_pkl_path} 时出错: {e}")
