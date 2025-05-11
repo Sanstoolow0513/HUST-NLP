@@ -1,3 +1,0 @@
-pytorch-crf
-scikit-learn
-transformers==4.0.0
