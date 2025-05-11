@@ -1,0 +1,97 @@
+2025-0502 16:20:16 INFO     未找到特征数据，将不使用特征。
+2025-0502 16:20:16 DEBUG    word_embeds.weight: torch.Size([4624, 100]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.weight_ih_l0: torch.Size([400, 100]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.weight_hh_l0: torch.Size([400, 100]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.bias_ih_l0: torch.Size([400]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.bias_hh_l0: torch.Size([400]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([400, 100]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([400]), require_grad=True
+2025-0502 16:20:16 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([400]), require_grad=True
+2025-0502 16:20:16 DEBUG    hidden2tag.weight: torch.Size([21, 200]), require_grad=True
+2025-0502 16:20:16 DEBUG    hidden2tag.bias: torch.Size([21]), require_grad=True
+2025-0502 16:20:16 DEBUG    crf.start_transitions: torch.Size([21]), require_grad=True
+2025-0502 16:20:16 DEBUG    crf.end_transitions: torch.Size([21]), require_grad=True
+2025-0502 16:20:16 DEBUG    crf.transitions: torch.Size([21, 21]), require_grad=True
+2025-0502 16:20:16 INFO     开始训练，共 20 个 epochs...
+2025-0502 16:20:16 INFO     使用特征: False, 特征维度: 0
+2025-0502 16:20:32 DEBUG    epoch 0-step 100 loss: 27.530941
+2025-0502 16:20:48 DEBUG    epoch 0-step 200 loss: 11.230477
+2025-0502 16:21:00 INFO     Epoch 0 - Precision: 0.698783, Recall: 0.630087, F1: 0.662659
+2025-0502 16:21:00 INFO     模型已保存到 save/NER\model_epoch0.pkl
+2025-0502 16:21:13 DEBUG    epoch 1-step 100 loss: 6.563105
+2025-0502 16:21:28 DEBUG    epoch 1-step 200 loss: 5.260457
+2025-0502 16:21:38 INFO     Epoch 1 - Precision: 0.784652, Recall: 0.748057, F1: 0.765918
+2025-0502 16:21:38 INFO     模型已保存到 save/NER\model_epoch1.pkl
+2025-0502 16:21:54 DEBUG    epoch 2-step 100 loss: 4.103521
+2025-0502 16:22:08 DEBUG    epoch 2-step 200 loss: 3.628242
+2025-0502 16:22:20 INFO     Epoch 2 - Precision: 0.837287, Recall: 0.807042, F1: 0.821886
+2025-0502 16:22:20 INFO     模型已保存到 save/NER\model_epoch2.pkl
+2025-0502 16:22:33 DEBUG    epoch 3-step 100 loss: 2.954912
+2025-0502 16:22:48 DEBUG    epoch 3-step 200 loss: 2.861899
+2025-0502 16:22:59 INFO     Epoch 3 - Precision: 0.822847, Recall: 0.843164, F1: 0.832882
+2025-0502 16:22:59 INFO     模型已保存到 save/NER\model_epoch3.pkl
+2025-0502 16:23:15 DEBUG    epoch 4-step 100 loss: 2.543923
+2025-0502 16:23:28 DEBUG    epoch 4-step 200 loss: 2.378403
+2025-0502 16:23:40 INFO     Epoch 4 - Precision: 0.846189, Recall: 0.857796, F1: 0.851953
+2025-0502 16:23:40 INFO     模型已保存到 save/NER\model_epoch4.pkl
+2025-0502 16:23:55 DEBUG    epoch 5-step 100 loss: 2.144837
+2025-0502 16:24:09 DEBUG    epoch 5-step 200 loss: 2.051705
+2025-0502 16:24:21 INFO     Epoch 5 - Precision: 0.852268, Recall: 0.867856, F1: 0.859991
+2025-0502 16:24:21 INFO     模型已保存到 save/NER\model_epoch5.pkl
+2025-0502 16:24:36 DEBUG    epoch 6-step 100 loss: 1.874312
+2025-0502 16:24:52 DEBUG    epoch 6-step 200 loss: 1.926747
+2025-0502 16:25:04 INFO     Epoch 6 - Precision: 0.851736, Recall: 0.874714, F1: 0.863072
+2025-0502 16:25:04 INFO     模型已保存到 save/NER\model_epoch6.pkl
+2025-0502 16:25:18 DEBUG    epoch 7-step 100 loss: 1.736621
+2025-0502 16:25:33 DEBUG    epoch 7-step 200 loss: 1.729104
+2025-0502 16:25:45 INFO     Epoch 7 - Precision: 0.870588, Recall: 0.879744, F1: 0.875142
+2025-0502 16:25:45 INFO     模型已保存到 save/NER\model_epoch7.pkl
+2025-0502 16:25:59 DEBUG    epoch 8-step 100 loss: 1.595530
+2025-0502 16:26:13 DEBUG    epoch 8-step 200 loss: 1.642669
+2025-0502 16:26:38 INFO     Epoch 8 - Precision: 0.860310, Recall: 0.887060, F1: 0.873480
+2025-0502 16:26:38 INFO     模型已保存到 save/NER\model_epoch8.pkl
+2025-0502 16:27:17 DEBUG    epoch 9-step 100 loss: 1.550465
+2025-0502 16:28:02 DEBUG    epoch 9-step 200 loss: 1.503313
+2025-0502 16:28:42 INFO     Epoch 9 - Precision: 0.872514, Recall: 0.882487, F1: 0.877472
+2025-0502 16:28:42 INFO     模型已保存到 save/NER\model_epoch9.pkl
+2025-0502 16:29:30 DEBUG    epoch 10-step 100 loss: 1.442452
+2025-0502 16:30:08 DEBUG    epoch 10-step 200 loss: 1.423865
+2025-0502 16:30:37 INFO     Epoch 10 - Precision: 0.872549, Recall: 0.895290, F1: 0.883773
+2025-0502 16:30:37 INFO     模型已保存到 save/NER\model_epoch10.pkl
+2025-0502 16:31:13 DEBUG    epoch 11-step 100 loss: 1.373772
+2025-0502 16:31:53 DEBUG    epoch 11-step 200 loss: 1.381099
+2025-0502 16:32:24 INFO     Epoch 11 - Precision: 0.879458, Recall: 0.890718, F1: 0.885052
+2025-0502 16:32:24 INFO     模型已保存到 save/NER\model_epoch11.pkl
+2025-0502 16:33:03 DEBUG    epoch 12-step 100 loss: 1.303438
+2025-0502 16:33:42 DEBUG    epoch 12-step 200 loss: 1.291121
+2025-0502 16:34:13 INFO     Epoch 12 - Precision: 0.888788, Recall: 0.891632, F1: 0.890208
+2025-0502 16:34:13 INFO     模型已保存到 save/NER\model_epoch12.pkl
+2025-0502 16:34:43 DEBUG    epoch 13-step 100 loss: 1.227250
+2025-0502 16:35:21 DEBUG    epoch 13-step 200 loss: 1.247404
+2025-0502 16:35:52 INFO     Epoch 13 - Precision: 0.872293, Recall: 0.902606, F1: 0.887191
+2025-0502 16:35:52 INFO     模型已保存到 save/NER\model_epoch13.pkl
+2025-0502 16:36:30 DEBUG    epoch 14-step 100 loss: 1.222341
+2025-0502 16:37:10 DEBUG    epoch 14-step 200 loss: 1.259610
+2025-0502 16:37:43 INFO     Epoch 14 - Precision: 0.891734, Recall: 0.907636, F1: 0.899615
+2025-0502 16:37:43 INFO     模型已保存到 save/NER\model_epoch14.pkl
+2025-0502 16:38:26 DEBUG    epoch 15-step 100 loss: 1.159925
+2025-0502 16:39:09 DEBUG    epoch 15-step 200 loss: 1.181463
+2025-0502 16:39:30 INFO     Epoch 15 - Precision: 0.873239, Recall: 0.907179, F1: 0.889886
+2025-0502 16:39:30 INFO     模型已保存到 save/NER\model_epoch15.pkl
+2025-0502 16:39:45 DEBUG    epoch 16-step 100 loss: 1.124345
+2025-0502 16:40:00 DEBUG    epoch 16-step 200 loss: 1.136949
+2025-0502 16:40:14 INFO     Epoch 16 - Precision: 0.856773, Recall: 0.908093, F1: 0.881687
+2025-0502 16:40:14 INFO     模型已保存到 save/NER\model_epoch16.pkl
+2025-0502 16:40:29 DEBUG    epoch 17-step 100 loss: 1.113371
+2025-0502 16:40:43 DEBUG    epoch 17-step 200 loss: 1.089198
+2025-0502 16:40:54 INFO     Epoch 17 - Precision: 0.884581, Recall: 0.907636, F1: 0.895960
+2025-0502 16:40:54 INFO     模型已保存到 save/NER\model_epoch17.pkl
+2025-0502 16:41:09 DEBUG    epoch 18-step 100 loss: 1.073233
+2025-0502 16:41:24 DEBUG    epoch 18-step 200 loss: 1.083312
+2025-0502 16:41:37 INFO     Epoch 18 - Precision: 0.839211, Recall: 0.914037, F1: 0.875027
+2025-0502 16:41:37 INFO     模型已保存到 save/NER\model_epoch18.pkl
+2025-0502 16:41:51 DEBUG    epoch 19-step 100 loss: 1.034670
+2025-0502 16:42:05 DEBUG    epoch 19-step 200 loss: 1.070761
+2025-0502 16:42:17 INFO     Epoch 19 - Precision: 0.898198, Recall: 0.911751, F1: 0.904924
+2025-0502 16:42:17 INFO     模型已保存到 save/NER\model_epoch19.pkl

@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 pytorch-crf
+=======
+pytorch-crf
+>>>>>>> 8e75a700d98f1e772a9512e133c96c056c7d7f47
 scikit-learn
