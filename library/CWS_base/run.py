@@ -10,13 +10,13 @@ from dataloader import Sentence
 
 def get_param():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--embedding_dim', type=int, default=100)
-    parser.add_argument('--lr', type=float, default=0.005)
-    parser.add_argument('--max_epoch', type=int, default=10)
-    parser.add_argument('--batch_size', type=int, default=128)
-    parser.add_argument('--hidden_dim', type=int, default=200)
+    parser.add_argument('--embedding_dim', type=int, default=400)
+    parser.add_argument('--lr', type=float, default=0.003)
+    parser.add_argument('--max_epoch', type=int, default=15)
+    parser.add_argument('--batch_size', type=int, default=512)
+    parser.add_argument('--hidden_dim', type=int, default=400)
     parser.add_argument('--cuda', action='store_true', default=False)
-    parser.add_argument('--early_stopping', type=int, default=3, help='提前停止训练的耐心值')
+    parser.add_argument('--early_stopping', type=int, default=5, help='提前停止训练的耐心值')
     return parser.parse_args()
 
 
