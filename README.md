@@ -63,6 +63,7 @@
 
 ## transformer环境准备
 
+   这里主要是新的python环境
    ```shell
    conda create -n transformer python=3.10
    conda activate transformer
@@ -70,4 +71,6 @@
    ```
 
    通过transformer的官方文档进行安装, 具体可参考：<a href=" 具体可参考：<a href="URL_ADDRESSuggingface.co/docs/transformers/index">transformer</a>
+
+   如果要使用py3.7 可以安装transformers==4.0.0
    
