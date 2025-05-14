@@ -115,7 +115,8 @@ class BertCWS(nn.Module):
 class BertBiLSTMCRF(nn.Module):
     """使用BERT+BiLSTM+CRF的中文分词模型"""
     def __init__(self, tag2id, bert_model_name='bert-base-chinese', 
-                 lstm_hidden_dim=256, lstm_layers=1, dropout_rate=0.1):
+                 lstm_hidden_dim=256, lstm_layers=1, dropout_rate=0.1,
+                 ner_tagset_size=0, ner_embedding_dim=0): # Added NER params
         super(BertBiLSTMCRF, self).__init__()
         self.tag2id = tag2id
         self.tagset_size = len(tag2id)
@@ -127,7 +128,17 @@ class BertBiLSTMCRF(nn.Module):
         self.lstm_hidden_dim = lstm_hidden_dim
         self.bert_hidden_dim = self.bert.config.hidden_size
 
-        self.lstm = nn.LSTM(input_size=self.bert_hidden_dim, 
+        # NER Embeddings (optional)
+        self.ner_embedding_dim = ner_embedding_dim
+        self.ner_tagset_size = ner_tagset_size
+        if self.ner_tagset_size > 0 and self.ner_embedding_dim > 0:
+            self.ner_embeddings = nn.Embedding(self.ner_tagset_size, self.ner_embedding_dim, padding_idx=0) # Assuming 0 can be a padding_idx for NER tags if needed
+            lstm_input_size = self.bert_hidden_dim + self.ner_embedding_dim
+        else:
+            self.ner_embeddings = None
+            lstm_input_size = self.bert_hidden_dim
+
+        self.lstm = nn.LSTM(input_size=lstm_input_size, 
                               hidden_size=lstm_hidden_dim // 2, # BiLSTM所以hidden_size减半
                               num_layers=lstm_layers, 
                               bidirectional=True, 
@@ -137,16 +148,27 @@ class BertBiLSTMCRF(nn.Module):
         self.hidden2tag = nn.Linear(lstm_hidden_dim, self.tagset_size)
         self.crf = CRF(self.tagset_size, batch_first=True)
 
-    def _get_features(self, input_ids, attention_mask):
+    def _get_features(self, input_ids, attention_mask, ner_labels=None):
         """获取经过BERT和BiLSTM的特征"""
         # BERT特征
         bert_outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
         sequence_output = bert_outputs.last_hidden_state  # [batch_size, seq_len, bert_hidden_size]
         sequence_output = self.dropout(sequence_output)
         
+        # NER特征 (optional)
+        if self.ner_embeddings is not None and ner_labels is not None:
+            # Ensure ner_labels are non-negative before passing to embedding layer
+            # Values like -100 (ignore_index) should be handled, e.g., mapped to a padding_idx or a specific 'O' NER tag index if not already.
+            # Here, we assume ner_labels are already processed to be valid indices for nn.Embedding.
+            # If -100 is present and padding_idx is not set or not -100, it will cause an error.
+            # A common practice is to map -100 to 0 if 0 is the padding_idx for NER embeddings.
+            ner_labels_for_embedding = ner_labels.clone()
+            ner_labels_for_embedding[ner_labels_for_embedding < 0] = 0 # Map ignored NER labels to padding_idx 0
+            ner_embeds = self.ner_embeddings(ner_labels_for_embedding) # [batch_size, seq_len, ner_embedding_dim]
+            ner_embeds = self.dropout(ner_embeds) # Apply dropout to NER embeddings as well
+            sequence_output = torch.cat([sequence_output, ner_embeds], dim=-1) # Concatenate
+
         # BiLSTM特征
-        # 注意：LSTM不直接使用mask，但后续CRF会使用。或者，可以只将未padding的部分传入LSTM。
-        # 这里我们将所有序列（包括padding）传入LSTM，依赖CRF的mask。
         lstm_output, _ = self.lstm(sequence_output) # [batch_size, seq_len, lstm_hidden_dim]
         lstm_output = self.dropout(lstm_output)
         
@@ -154,9 +176,9 @@ class BertBiLSTMCRF(nn.Module):
         emissions = self.hidden2tag(lstm_output) # [batch_size, seq_len, tagset_size]
         return emissions
 
-    def forward(self, input_ids, tags, attention_mask, token_type_ids=None):
+    def forward(self, input_ids, tags, attention_mask, token_type_ids=None, ner_labels=None): # Added ner_labels
         """前向传播，计算损失"""
-        emissions = self._get_features(input_ids, attention_mask)
+        emissions = self._get_features(input_ids, attention_mask, ner_labels=ner_labels)
         
         crf_tags = tags.clone()
         crf_tags[crf_tags < 0] = self.o_tag_id # 处理忽略标签
@@ -166,7 +188,7 @@ class BertBiLSTMCRF(nn.Module):
         loss = -self.crf(emissions, crf_tags, mask=crf_mask, reduction='mean')
         return loss
 
-    def infer(self, input_ids, attention_mask, token_type_ids=None):
+    def infer(self, input_ids, attention_mask, token_type_ids=None, ner_labels=None): # Added ner_labels
         """推理，返回预测的标签序列"""
-        emissions = self._get_features(input_ids, attention_mask)
+        emissions = self._get_features(input_ids, attention_mask, ner_labels=ner_labels)
         return self.crf.decode(emissions, mask=attention_mask.byte())

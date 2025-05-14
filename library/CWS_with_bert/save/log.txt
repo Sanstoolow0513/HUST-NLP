@@ -1,3 +1,20 @@
-2025-0513 13:24:09 DEBUG    id2tag type: <class 'list'>, content: ['B', 'M', 'E', 'S', 'O']
-2025-0513 13:24:09 INFO     使用BERT模型: bert-base-chinese
-2025-0513 13:24:09 DEBUG    Starting new HTTPS connection (1): huggingface.co:443
+2025-0513 18:31:46 DEBUG    Starting new HTTPS connection (1): huggingface.co:443
+2025-0513 18:31:46 DEBUG    Starting new HTTPS connection (1): huggingface.co:443
+2025-0513 18:31:46 INFO     Loading NER model from: c:\Users\Sanstoolow\Desktop\HUST-NLP\library\NER\save\model_epoch9.pkl
+2025-0513 18:31:47 INFO     Loading NER data from: c:\Users\Sanstoolow\Desktop\HUST-NLP\library\NER\data\ner_datasave.pkl
+2025-0513 18:31:47 INFO     NER model and data loaded successfully. NER tagset size: 21
+2025-0513 18:31:47 INFO     Loading NER model from: c:\Users\Sanstoolow\Desktop\HUST-NLP\library\NER\save\model_epoch9.pkl
+2025-0513 18:31:47 INFO     Loading NER data from: c:\Users\Sanstoolow\Desktop\HUST-NLP\library\NER\data\ner_datasave.pkl
+2025-0513 18:31:47 INFO     NER model and data loaded successfully. NER tagset size: 21
+2025-0513 18:31:47 DEBUG    Starting new HTTPS connection (1): huggingface.co:443
+2025-0513 18:31:47 DEBUG    Starting new HTTPS connection (1): huggingface.co:443
+2025-0513 18:52:48 INFO     Epoch 1: train_loss=8.3789, val_loss=3.5688
+2025-0513 18:52:49 INFO     Best model saved at epoch 1
+2025-0513 19:09:08 INFO     Epoch 2: train_loss=3.0189, val_loss=2.8659
+2025-0513 19:09:08 INFO     Best model saved at epoch 2
+2025-0513 19:28:16 INFO     Epoch 3: train_loss=2.0518, val_loss=2.5986
+2025-0513 19:28:16 INFO     Best model saved at epoch 3
+2025-0513 19:46:07 INFO     Epoch 4: train_loss=1.5598, val_loss=2.5545
+2025-0513 19:46:08 INFO     Best model saved at epoch 4
+2025-0513 20:10:42 INFO     Epoch 5: train_loss=1.2760, val_loss=2.5812
+2025-0513 20:10:42 INFO     训练结束，最优模型已保存。

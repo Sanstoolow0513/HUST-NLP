@@ -11,11 +11,11 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 def get_param():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--embedding_dim', type=int, default=200)  # 增加embedding维度
+    parser.add_argument('--embedding_dim', type=int, default=500)  # 增加embedding维度
     parser.add_argument('--lr', type=float, default=0.001)  # 调整学习率
-    parser.add_argument('--max_epoch', type=int, default=20)  # 增加训练轮数
+    parser.add_argument('--max_epoch', type=int, default=40)  # 增加训练轮数
     parser.add_argument('--batch_size', type=int, default=256)  # 调整batch大小
-    parser.add_argument('--hidden_dim', type=int, default=300)  # 增加隐藏层维度
+    parser.add_argument('--hidden_dim', type=int, default=1024)  # 增加隐藏层维度
     parser.add_argument('--cuda', action='store_true', default=False)
     parser.add_argument('--weight_decay', type=float, default=1e-5)  # 添加权重衰减
     return parser.parse_args()

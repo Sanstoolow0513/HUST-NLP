@@ -1,122 +1,150 @@
-2025-0430 17:47:55 INFO     Arguments: Namespace(batch_size=256, cuda=True, embedding_dim=200, hidden_dim=300, lr=0.001, max_epoch=20, weight_decay=1e-05)
-2025-0430 17:47:57 DEBUG    word_embeds.weight: torch.Size([5168, 200]), require_grad=True
-2025-0430 17:47:57 DEBUG    char_type_embeds.weight: torch.Size([5, 20]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_ih_l0: torch.Size([600, 220]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_hh_l0: torch.Size([600, 150]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_ih_l0: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_hh_l0: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([600, 220]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([600, 150]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_ih_l1: torch.Size([600, 300]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_hh_l1: torch.Size([600, 150]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_ih_l1: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_hh_l1: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_ih_l1_reverse: torch.Size([600, 300]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.weight_hh_l1_reverse: torch.Size([600, 150]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_ih_l1_reverse: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    lstm.bias_hh_l1_reverse: torch.Size([600]), require_grad=True
-2025-0430 17:47:57 DEBUG    linear.weight: torch.Size([300, 300]), require_grad=True
-2025-0430 17:47:57 DEBUG    linear.bias: torch.Size([300]), require_grad=True
-2025-0430 17:47:57 DEBUG    hidden2tag.weight: torch.Size([4, 300]), require_grad=True
-2025-0430 17:47:57 DEBUG    hidden2tag.bias: torch.Size([4]), require_grad=True
-2025-0430 17:47:57 DEBUG    crf.start_transitions: torch.Size([4]), require_grad=True
-2025-0430 17:47:57 DEBUG    crf.end_transitions: torch.Size([4]), require_grad=True
-2025-0430 17:47:57 DEBUG    crf.transitions: torch.Size([4, 4]), require_grad=True
-2025-0430 17:48:27 DEBUG    Epoch 0-Step 100 Avg Loss: 34.0427
-2025-0430 17:48:56 DEBUG    Epoch 0-Step 200 Avg Loss: 15.7381
-2025-0430 17:49:18 INFO     Epoch 0 Average Training Loss: 21.7265
-2025-0430 17:49:18 INFO     Epoch 0 - Precision: 0.8985, Recall: 0.8883, F1: 0.8933
-2025-0430 17:49:18 INFO     Best model saved with F1: 0.8933 in save\best_model.pkl
-2025-0430 17:49:45 DEBUG    Epoch 1-Step 100 Avg Loss: 10.4781
-2025-0430 17:50:17 DEBUG    Epoch 1-Step 200 Avg Loss: 9.3321
-2025-0430 17:50:41 INFO     Epoch 1 Average Training Loss: 9.5227
-2025-0430 17:50:42 INFO     Epoch 1 - Precision: 0.9213, Recall: 0.9170, F1: 0.9191
-2025-0430 17:50:42 INFO     Best model saved with F1: 0.9191 in save\best_model.pkl
-2025-0430 17:51:13 DEBUG    Epoch 2-Step 100 Avg Loss: 7.0817
-2025-0430 17:51:42 DEBUG    Epoch 2-Step 200 Avg Loss: 6.7114
-2025-0430 17:52:06 INFO     Epoch 2 Average Training Loss: 6.7418
-2025-0430 17:52:06 INFO     Epoch 2 - Precision: 0.9317, Recall: 0.9309, F1: 0.9313
-2025-0430 17:52:06 INFO     Best model saved with F1: 0.9313 in save\best_model.pkl
-2025-0430 17:52:37 DEBUG    Epoch 3-Step 100 Avg Loss: 5.3907
-2025-0430 17:53:08 DEBUG    Epoch 3-Step 200 Avg Loss: 5.1189
-2025-0430 17:53:32 INFO     Epoch 3 Average Training Loss: 5.1575
-2025-0430 17:53:33 INFO     Epoch 3 - Precision: 0.9423, Recall: 0.9366, F1: 0.9394
-2025-0430 17:53:33 INFO     Best model saved with F1: 0.9394 in save\best_model.pkl
-2025-0430 17:54:04 DEBUG    Epoch 4-Step 100 Avg Loss: 4.1964
-2025-0430 17:54:33 DEBUG    Epoch 4-Step 200 Avg Loss: 4.1019
-2025-0430 17:54:57 INFO     Epoch 4 Average Training Loss: 4.1023
-2025-0430 17:54:57 INFO     Epoch 4 - Precision: 0.9472, Recall: 0.9445, F1: 0.9458
-2025-0430 17:54:57 INFO     Best model saved with F1: 0.9458 in save\best_model.pkl
-2025-0430 17:55:29 DEBUG    Epoch 5-Step 100 Avg Loss: 3.3561
-2025-0430 17:56:00 DEBUG    Epoch 5-Step 200 Avg Loss: 3.3145
-2025-0430 17:56:23 INFO     Epoch 5 Average Training Loss: 3.3237
-2025-0430 17:56:24 INFO     Epoch 5 - Precision: 0.9482, Recall: 0.9500, F1: 0.9491
-2025-0430 17:56:24 INFO     Best model saved with F1: 0.9491 in save\best_model.pkl
-2025-0430 17:56:54 DEBUG    Epoch 6-Step 100 Avg Loss: 2.7103
-2025-0430 17:57:26 DEBUG    Epoch 6-Step 200 Avg Loss: 2.7699
-2025-0430 17:57:49 INFO     Epoch 6 Average Training Loss: 2.7440
-2025-0430 17:57:50 INFO     Epoch 6 - Precision: 0.9541, Recall: 0.9454, F1: 0.9497
-2025-0430 17:57:50 INFO     Best model saved with F1: 0.9497 in save\best_model.pkl
-2025-0430 17:58:22 DEBUG    Epoch 7-Step 100 Avg Loss: 2.2604
-2025-0430 17:58:50 DEBUG    Epoch 7-Step 200 Avg Loss: 2.2741
-2025-0430 17:59:13 INFO     Epoch 7 Average Training Loss: 2.2818
-2025-0430 17:59:13 INFO     Epoch 7 - Precision: 0.9536, Recall: 0.9524, F1: 0.9530
-2025-0430 17:59:13 INFO     Best model saved with F1: 0.9530 in save\best_model.pkl
-2025-0430 17:59:44 DEBUG    Epoch 8-Step 100 Avg Loss: 1.8396
-2025-0430 18:00:17 DEBUG    Epoch 8-Step 200 Avg Loss: 1.9061
-2025-0430 18:00:40 INFO     Epoch 8 Average Training Loss: 1.9050
-2025-0430 18:00:41 INFO     Epoch 8 - Precision: 0.9562, Recall: 0.9561, F1: 0.9561
-2025-0430 18:00:41 INFO     Best model saved with F1: 0.9561 in save\best_model.pkl
-2025-0430 18:01:12 DEBUG    Epoch 9-Step 100 Avg Loss: 1.5411
-2025-0430 18:01:45 DEBUG    Epoch 9-Step 200 Avg Loss: 1.6651
-2025-0430 18:02:07 INFO     Epoch 9 Average Training Loss: 1.6269
-2025-0430 18:02:08 INFO     Epoch 9 - Precision: 0.9538, Recall: 0.9585, F1: 0.9562
-2025-0430 18:02:08 INFO     Best model saved with F1: 0.9562 in save\best_model.pkl
-2025-0430 18:02:42 DEBUG    Epoch 10-Step 100 Avg Loss: 1.3134
-2025-0430 18:03:12 DEBUG    Epoch 10-Step 200 Avg Loss: 1.4015
-2025-0430 18:03:34 INFO     Epoch 10 Average Training Loss: 1.3744
-2025-0430 18:03:34 INFO     Epoch 10 - Precision: 0.9567, Recall: 0.9589, F1: 0.9578
-2025-0430 18:03:34 INFO     Best model saved with F1: 0.9578 in save\best_model.pkl
-2025-0430 18:04:02 DEBUG    Epoch 11-Step 100 Avg Loss: 1.1100
-2025-0430 18:04:34 DEBUG    Epoch 11-Step 200 Avg Loss: 1.1712
-2025-0430 18:04:55 INFO     Epoch 11 Average Training Loss: 1.1677
-2025-0430 18:04:56 INFO     Epoch 11 - Precision: 0.9593, Recall: 0.9566, F1: 0.9579
-2025-0430 18:04:56 INFO     Best model saved with F1: 0.9579 in save\best_model.pkl
-2025-0430 18:05:26 DEBUG    Epoch 12-Step 100 Avg Loss: 0.9459
-2025-0430 18:05:54 DEBUG    Epoch 12-Step 200 Avg Loss: 1.0137
-2025-0430 18:06:16 INFO     Epoch 12 Average Training Loss: 1.0002
-2025-0430 18:06:16 INFO     Epoch 12 - Precision: 0.9601, Recall: 0.9570, F1: 0.9586
-2025-0430 18:06:16 INFO     Best model saved with F1: 0.9586 in save\best_model.pkl
-2025-0430 18:06:48 DEBUG    Epoch 13-Step 100 Avg Loss: 0.8063
-2025-0430 18:07:19 DEBUG    Epoch 13-Step 200 Avg Loss: 0.8564
-2025-0430 18:07:40 INFO     Epoch 13 Average Training Loss: 0.8551
-2025-0430 18:07:41 INFO     Epoch 13 - Precision: 0.9596, Recall: 0.9568, F1: 0.9582
-2025-0430 18:08:17 DEBUG    Epoch 14-Step 100 Avg Loss: 0.6886
-2025-0430 18:08:54 DEBUG    Epoch 14-Step 200 Avg Loss: 0.7711
-2025-0430 18:09:19 INFO     Epoch 14 Average Training Loss: 0.7454
-2025-0430 18:09:20 INFO     Epoch 14 - Precision: 0.9603, Recall: 0.9564, F1: 0.9583
-2025-0430 18:09:56 DEBUG    Epoch 15-Step 100 Avg Loss: 0.6046
-2025-0430 18:10:33 DEBUG    Epoch 15-Step 200 Avg Loss: 0.6746
-2025-0430 18:10:57 INFO     Epoch 15 Average Training Loss: 0.6619
-2025-0430 18:10:58 INFO     Epoch 15 - Precision: 0.9605, Recall: 0.9593, F1: 0.9599
-2025-0430 18:10:58 INFO     Best model saved with F1: 0.9599 in save\best_model.pkl
-2025-0430 18:11:34 DEBUG    Epoch 16-Step 100 Avg Loss: 0.5433
-2025-0430 18:12:11 DEBUG    Epoch 16-Step 200 Avg Loss: 0.5986
-2025-0430 18:12:37 INFO     Epoch 16 Average Training Loss: 0.5857
-2025-0430 18:12:38 INFO     Epoch 16 - Precision: 0.9615, Recall: 0.9573, F1: 0.9594
-2025-0430 18:13:13 DEBUG    Epoch 17-Step 100 Avg Loss: 0.4667
-2025-0430 18:13:52 DEBUG    Epoch 17-Step 200 Avg Loss: 0.5393
-2025-0430 18:14:17 INFO     Epoch 17 Average Training Loss: 0.5170
-2025-0430 18:14:19 INFO     Epoch 17 - Precision: 0.9602, Recall: 0.9597, F1: 0.9600
-2025-0430 18:14:19 INFO     Best model saved with F1: 0.9600 in save\best_model.pkl
-2025-0430 18:14:56 DEBUG    Epoch 18-Step 100 Avg Loss: 0.4557
-2025-0430 18:15:33 DEBUG    Epoch 18-Step 200 Avg Loss: 0.4834
-2025-0430 18:16:00 INFO     Epoch 18 Average Training Loss: 0.4845
-2025-0430 18:16:01 INFO     Epoch 18 - Precision: 0.9599, Recall: 0.9579, F1: 0.9589
-2025-0430 18:16:39 DEBUG    Epoch 19-Step 100 Avg Loss: 0.3010
-2025-0430 18:17:14 DEBUG    Epoch 19-Step 200 Avg Loss: 0.2878
-2025-0430 18:17:40 INFO     Epoch 19 Average Training Loss: 0.2923
-2025-0430 18:17:41 INFO     Epoch 19 - Precision: 0.9628, Recall: 0.9601, F1: 0.9614
-2025-0430 18:17:41 INFO     Best model saved with F1: 0.9614 in save\best_model.pkl
+2025-0514 12:27:27 INFO     Arguments: Namespace(batch_size=256, cuda=True, embedding_dim=500, hidden_dim=1024, lr=0.001, max_epoch=40, weight_decay=1e-05)
+2025-0514 12:27:28 DEBUG    word_embeds.weight: torch.Size([5168, 500]), require_grad=True
+2025-0514 12:27:28 DEBUG    char_type_embeds.weight: torch.Size([5, 20]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_ih_l0: torch.Size([2048, 520]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_hh_l0: torch.Size([2048, 512]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_ih_l0: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_hh_l0: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([2048, 520]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([2048, 512]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_ih_l1: torch.Size([2048, 1024]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_hh_l1: torch.Size([2048, 512]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_ih_l1: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_hh_l1: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_ih_l1_reverse: torch.Size([2048, 1024]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.weight_hh_l1_reverse: torch.Size([2048, 512]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_ih_l1_reverse: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    lstm.bias_hh_l1_reverse: torch.Size([2048]), require_grad=True
+2025-0514 12:27:28 DEBUG    linear.weight: torch.Size([1024, 1024]), require_grad=True
+2025-0514 12:27:28 DEBUG    linear.bias: torch.Size([1024]), require_grad=True
+2025-0514 12:27:28 DEBUG    hidden2tag.weight: torch.Size([4, 1024]), require_grad=True
+2025-0514 12:27:28 DEBUG    hidden2tag.bias: torch.Size([4]), require_grad=True
+2025-0514 12:27:28 DEBUG    crf.start_transitions: torch.Size([4]), require_grad=True
+2025-0514 12:27:28 DEBUG    crf.end_transitions: torch.Size([4]), require_grad=True
+2025-0514 12:27:28 DEBUG    crf.transitions: torch.Size([4, 4]), require_grad=True
+2025-0514 12:28:31 DEBUG    Epoch 0-Step 100 Avg Loss: 23.1760
+2025-0514 12:30:52 DEBUG    Epoch 0-Step 200 Avg Loss: 10.1718
+2025-0514 12:32:10 INFO     Epoch 0 Average Training Loss: 14.2817
+2025-0514 12:32:12 INFO     Epoch 0 - Precision: 0.9359, Recall: 0.9326, F1: 0.9343
+2025-0514 12:32:12 INFO     Best model saved with F1: 0.9343 in save\best_model.pkl
+2025-0514 12:33:25 DEBUG    Epoch 1-Step 100 Avg Loss: 5.5067
+2025-0514 12:34:38 DEBUG    Epoch 1-Step 200 Avg Loss: 4.8729
+2025-0514 12:35:32 INFO     Epoch 1 Average Training Loss: 4.9475
+2025-0514 12:35:34 INFO     Epoch 1 - Precision: 0.9583, Recall: 0.9532, F1: 0.9557
+2025-0514 12:35:34 INFO     Best model saved with F1: 0.9557 in save\best_model.pkl
+2025-0514 12:36:48 DEBUG    Epoch 2-Step 100 Avg Loss: 2.8436
+2025-0514 12:38:09 DEBUG    Epoch 2-Step 200 Avg Loss: 2.7236
+2025-0514 12:39:01 INFO     Epoch 2 Average Training Loss: 2.7564
+2025-0514 12:39:03 INFO     Epoch 2 - Precision: 0.9647, Recall: 0.9590, F1: 0.9618
+2025-0514 12:39:03 INFO     Best model saved with F1: 0.9618 in save\best_model.pkl
+2025-0514 12:40:14 DEBUG    Epoch 3-Step 100 Avg Loss: 1.5874
+2025-0514 12:41:34 DEBUG    Epoch 3-Step 200 Avg Loss: 1.6403
+2025-0514 12:42:31 INFO     Epoch 3 Average Training Loss: 1.6352
+2025-0514 12:42:33 INFO     Epoch 3 - Precision: 0.9679, Recall: 0.9645, F1: 0.9662
+2025-0514 12:42:33 INFO     Best model saved with F1: 0.9662 in save\best_model.pkl
+2025-0514 12:43:41 DEBUG    Epoch 4-Step 100 Avg Loss: 0.9956
+2025-0514 12:44:56 DEBUG    Epoch 4-Step 200 Avg Loss: 1.0792
+2025-0514 12:45:47 INFO     Epoch 4 Average Training Loss: 1.0498
+2025-0514 12:45:48 INFO     Epoch 4 - Precision: 0.9687, Recall: 0.9672, F1: 0.9679
+2025-0514 12:45:48 INFO     Best model saved with F1: 0.9679 in save\best_model.pkl
+2025-0514 12:46:43 DEBUG    Epoch 5-Step 100 Avg Loss: 0.6763
+2025-0514 12:47:33 DEBUG    Epoch 5-Step 200 Avg Loss: 0.7411
+2025-0514 12:48:17 INFO     Epoch 5 Average Training Loss: 0.7235
+2025-0514 12:48:18 INFO     Epoch 5 - Precision: 0.9705, Recall: 0.9667, F1: 0.9686
+2025-0514 12:48:18 INFO     Best model saved with F1: 0.9686 in save\best_model.pkl
+2025-0514 12:49:11 DEBUG    Epoch 6-Step 100 Avg Loss: 0.4995
+2025-0514 12:50:08 DEBUG    Epoch 6-Step 200 Avg Loss: 0.5822
+2025-0514 12:50:42 INFO     Epoch 6 Average Training Loss: 0.5605
+2025-0514 12:50:43 INFO     Epoch 6 - Precision: 0.9699, Recall: 0.9668, F1: 0.9683
+2025-0514 12:51:35 DEBUG    Epoch 7-Step 100 Avg Loss: 0.3917
+2025-0514 12:52:24 DEBUG    Epoch 7-Step 200 Avg Loss: 0.4547
+2025-0514 12:53:12 INFO     Epoch 7 Average Training Loss: 0.4358
+2025-0514 12:53:13 INFO     Epoch 7 - Precision: 0.9700, Recall: 0.9686, F1: 0.9693
+2025-0514 12:53:13 INFO     Best model saved with F1: 0.9693 in save\best_model.pkl
+2025-0514 12:54:15 DEBUG    Epoch 8-Step 100 Avg Loss: 0.3412
+2025-0514 12:55:06 DEBUG    Epoch 8-Step 200 Avg Loss: 0.3884
+2025-0514 12:55:43 INFO     Epoch 8 Average Training Loss: 0.3797
+2025-0514 12:55:44 INFO     Epoch 8 - Precision: 0.9714, Recall: 0.9693, F1: 0.9703
+2025-0514 12:55:44 INFO     Best model saved with F1: 0.9703 in save\best_model.pkl
+2025-0514 12:56:37 DEBUG    Epoch 9-Step 100 Avg Loss: 0.2856
+2025-0514 12:57:27 DEBUG    Epoch 9-Step 200 Avg Loss: 0.3448
+2025-0514 12:58:09 INFO     Epoch 9 Average Training Loss: 0.3312
+2025-0514 12:58:10 INFO     Epoch 9 - Precision: 0.9696, Recall: 0.9670, F1: 0.9683
+2025-0514 12:59:13 DEBUG    Epoch 10-Step 100 Avg Loss: 0.2678
+2025-0514 13:00:03 DEBUG    Epoch 10-Step 200 Avg Loss: 0.2910
+2025-0514 13:00:39 INFO     Epoch 10 Average Training Loss: 0.2908
+2025-0514 13:00:40 INFO     Epoch 10 - Precision: 0.9708, Recall: 0.9677, F1: 0.9692
+2025-0514 13:01:30 DEBUG    Epoch 11-Step 100 Avg Loss: 0.2383
+2025-0514 13:02:24 DEBUG    Epoch 11-Step 200 Avg Loss: 0.2718
+2025-0514 13:03:00 INFO     Epoch 11 Average Training Loss: 0.2631
+2025-0514 13:03:01 INFO     Epoch 11 - Precision: 0.9710, Recall: 0.9707, F1: 0.9709
+2025-0514 13:03:01 INFO     Best model saved with F1: 0.9709 in save\best_model.pkl
+2025-0514 13:04:12 DEBUG    Epoch 12-Step 100 Avg Loss: 0.2250
+2025-0514 13:05:30 DEBUG    Epoch 12-Step 200 Avg Loss: 0.2588
+2025-0514 13:06:21 INFO     Epoch 12 Average Training Loss: 0.2563
+2025-0514 13:06:23 INFO     Epoch 12 - Precision: 0.9721, Recall: 0.9671, F1: 0.9696
+2025-0514 13:07:35 DEBUG    Epoch 13-Step 100 Avg Loss: 0.2078
+2025-0514 13:08:57 DEBUG    Epoch 13-Step 200 Avg Loss: 0.2345
+2025-0514 13:09:51 INFO     Epoch 13 Average Training Loss: 0.2337
+2025-0514 13:09:53 INFO     Epoch 13 - Precision: 0.9727, Recall: 0.9666, F1: 0.9696
+2025-0514 13:11:02 DEBUG    Epoch 14-Step 100 Avg Loss: 0.1968
+2025-0514 13:12:29 DEBUG    Epoch 14-Step 200 Avg Loss: 0.2495
+2025-0514 13:13:23 INFO     Epoch 14 Average Training Loss: 0.2332
+2025-0514 13:13:25 INFO     Epoch 14 - Precision: 0.9722, Recall: 0.9677, F1: 0.9700
+2025-0514 13:14:37 DEBUG    Epoch 15-Step 100 Avg Loss: 0.1169
+2025-0514 13:16:14 DEBUG    Epoch 15-Step 200 Avg Loss: 0.0951
+2025-0514 13:17:17 INFO     Epoch 15 Average Training Loss: 0.1004
+2025-0514 13:17:19 INFO     Epoch 15 - Precision: 0.9726, Recall: 0.9710, F1: 0.9718
+2025-0514 13:17:19 INFO     Best model saved with F1: 0.9718 in save\best_model.pkl
+2025-0514 13:18:47 DEBUG    Epoch 16-Step 100 Avg Loss: 0.0433
+2025-0514 13:20:02 DEBUG    Epoch 16-Step 200 Avg Loss: 0.0464
+2025-0514 13:21:02 INFO     Epoch 16 Average Training Loss: 0.0482
+2025-0514 13:21:04 INFO     Epoch 16 - Precision: 0.9729, Recall: 0.9706, F1: 0.9717
+2025-0514 13:22:21 DEBUG    Epoch 17-Step 100 Avg Loss: 0.0471
+2025-0514 13:23:43 DEBUG    Epoch 17-Step 200 Avg Loss: 0.0485
+2025-0514 13:24:37 INFO     Epoch 17 Average Training Loss: 0.0485
+2025-0514 13:24:39 INFO     Epoch 17 - Precision: 0.9737, Recall: 0.9710, F1: 0.9723
+2025-0514 13:24:39 INFO     Best model saved with F1: 0.9723 in save\best_model.pkl
+2025-0514 13:25:57 DEBUG    Epoch 18-Step 100 Avg Loss: 0.0371
+2025-0514 13:27:20 DEBUG    Epoch 18-Step 200 Avg Loss: 0.0596
+2025-0514 13:28:16 INFO     Epoch 18 Average Training Loss: 0.0517
+2025-0514 13:28:18 INFO     Epoch 18 - Precision: 0.9723, Recall: 0.9700, F1: 0.9712
+2025-0514 13:29:45 DEBUG    Epoch 19-Step 100 Avg Loss: 0.0460
+2025-0514 13:31:18 DEBUG    Epoch 19-Step 200 Avg Loss: 0.0496
+2025-0514 13:32:54 INFO     Epoch 19 Average Training Loss: 0.0504
+2025-0514 13:32:58 INFO     Epoch 19 - Precision: 0.9728, Recall: 0.9680, F1: 0.9704
+2025-0514 13:34:16 DEBUG    Epoch 20-Step 100 Avg Loss: 0.0540
+2025-0514 13:35:41 DEBUG    Epoch 20-Step 200 Avg Loss: 0.0658
+2025-0514 13:36:44 INFO     Epoch 20 Average Training Loss: 0.2458
+2025-0514 13:36:46 INFO     Epoch 20 - Precision: 0.9682, Recall: 0.9634, F1: 0.9658
+2025-0514 13:38:05 DEBUG    Epoch 21-Step 100 Avg Loss: 2.0570
+2025-0514 13:39:28 DEBUG    Epoch 21-Step 200 Avg Loss: 0.4855
+2025-0514 13:40:40 INFO     Epoch 21 Average Training Loss: 4.2486
+2025-0514 13:40:42 INFO     Epoch 21 - Precision: 0.9672, Recall: 0.9492, F1: 0.9581
+2025-0514 13:42:22 DEBUG    Epoch 22-Step 100 Avg Loss: 5.5923
+2025-0514 13:43:40 DEBUG    Epoch 22-Step 200 Avg Loss: 3.0385
+2025-0514 13:44:39 INFO     Epoch 22 Average Training Loss: 7.6227
+2025-0514 13:44:41 INFO     Epoch 22 - Precision: 0.9575, Recall: 0.9295, F1: 0.9433
+2025-0514 13:45:58 DEBUG    Epoch 23-Step 100 Avg Loss: 22.1579
+2025-0514 13:47:25 DEBUG    Epoch 23-Step 200 Avg Loss: 61.4120
+2025-0514 13:48:32 INFO     Epoch 23 Average Training Loss: 56.7230
+2025-0514 13:48:34 INFO     Epoch 23 - Precision: 0.7622, Recall: 0.5985, F1: 0.6705
+2025-0514 13:50:12 DEBUG    Epoch 24-Step 100 Avg Loss: 264.0094
+2025-0514 13:51:34 DEBUG    Epoch 24-Step 200 Avg Loss: 397.5133
+2025-0514 13:52:28 INFO     Epoch 24 Average Training Loss: 513.2758
+2025-0514 13:52:31 INFO     Epoch 24 - Precision: 0.8125, Recall: 0.7933, F1: 0.8027
+2025-0514 13:53:50 DEBUG    Epoch 25-Step 100 Avg Loss: 861.2775
+2025-0514 13:55:19 DEBUG    Epoch 25-Step 200 Avg Loss: 1436.6080
+2025-0514 13:56:14 INFO     Epoch 25 Average Training Loss: 1398.2761
+2025-0514 13:56:16 INFO     Epoch 25 - Precision: 0.4369, Recall: 0.4540, F1: 0.4453
+2025-0514 13:57:42 DEBUG    Epoch 26-Step 100 Avg Loss: 1679.6106
+2025-0514 13:59:03 DEBUG    Epoch 26-Step 200 Avg Loss: 1204.9783
+2025-0514 13:59:56 INFO     Epoch 26 Average Training Loss: 1428.5414
+2025-0514 13:59:58 INFO     Epoch 26 - Precision: 0.6975, Recall: 0.7930, F1: 0.7422
+2025-0514 14:01:23 DEBUG    Epoch 27-Step 100 Avg Loss: 476.4121
+2025-0514 14:02:36 DEBUG    Epoch 27-Step 200 Avg Loss: 233.0453
+2025-0514 14:03:31 INFO     Epoch 27 Average Training Loss: 334.7538
+2025-0514 14:03:33 INFO     Epoch 27 - Precision: 0.9008, Recall: 0.4872, F1: 0.6324
+2025-0514 14:04:48 DEBUG    Epoch 28-Step 100 Avg Loss: 381.3240

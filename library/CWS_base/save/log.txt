@@ -1,3 +1,114 @@
-2025-0513 13:26:14 DEBUG    id2tag type: <class 'list'>, content: ['B', 'M', 'E', 'S']
-2025-0513 13:26:14 INFO     使用BERT模型: bert-base-chinese
-2025-0513 13:26:14 DEBUG    Starting new HTTPS connection (1): huggingface.co:443
+2025-0513 17:42:50 DEBUG    word_embeds.weight: torch.Size([4454, 400]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.weight_ih_l0: torch.Size([800, 400]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.weight_hh_l0: torch.Size([800, 200]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.bias_ih_l0: torch.Size([800]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.bias_hh_l0: torch.Size([800]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.weight_ih_l0_reverse: torch.Size([800, 400]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.weight_hh_l0_reverse: torch.Size([800, 200]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.bias_ih_l0_reverse: torch.Size([800]), require_grad=True
+2025-0513 17:42:50 DEBUG    lstm.bias_hh_l0_reverse: torch.Size([800]), require_grad=True
+2025-0513 17:42:50 DEBUG    hidden2tag.weight: torch.Size([4, 400]), require_grad=True
+2025-0513 17:42:50 DEBUG    hidden2tag.bias: torch.Size([4]), require_grad=True
+2025-0513 17:42:50 DEBUG    crf.start_transitions: torch.Size([4]), require_grad=True
+2025-0513 17:42:50 DEBUG    crf.end_transitions: torch.Size([4]), require_grad=True
+2025-0513 17:42:50 DEBUG    crf.transitions: torch.Size([4, 4]), require_grad=True
+2025-0513 17:43:27 DEBUG    epoch 0-step 100 loss: 19.603339
+2025-0513 17:43:39 INFO     在验证集上评估...
+2025-0513 17:43:59 INFO     验证集 - precision: 0.915843, recall: 0.905982, fscore: 0.910886
+2025-0513 17:43:59 INFO     在测试集上评估...
+2025-0513 17:44:03 INFO     测试集 - precision: 0.912641, recall: 0.903882, fscore: 0.908241
+2025-0513 17:44:03 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:44:03 INFO     模型已保存至 ./save/model_epoch0.pkl
+2025-0513 17:44:40 DEBUG    epoch 1-step 100 loss: 6.773673
+2025-0513 17:44:51 INFO     在验证集上评估...
+2025-0513 17:45:12 INFO     验证集 - precision: 0.944406, recall: 0.934615, fscore: 0.939485
+2025-0513 17:45:12 INFO     在测试集上评估...
+2025-0513 17:45:15 INFO     测试集 - precision: 0.939999, recall: 0.933326, fscore: 0.936650
+2025-0513 17:45:15 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:45:15 INFO     模型已保存至 ./save/model_epoch1.pkl
+2025-0513 17:45:53 DEBUG    epoch 2-step 100 loss: 3.873539
+2025-0513 17:46:06 INFO     在验证集上评估...
+2025-0513 17:46:26 INFO     验证集 - precision: 0.952853, recall: 0.946438, fscore: 0.949634
+2025-0513 17:46:26 INFO     在测试集上评估...
+2025-0513 17:46:30 INFO     测试集 - precision: 0.951770, recall: 0.947668, fscore: 0.949714
+2025-0513 17:46:30 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:46:30 INFO     模型已保存至 ./save/model_epoch2.pkl
+2025-0513 17:47:06 DEBUG    epoch 3-step 100 loss: 2.371283
+2025-0513 17:47:18 INFO     在验证集上评估...
+2025-0513 17:47:36 INFO     验证集 - precision: 0.955949, recall: 0.951163, fscore: 0.953550
+2025-0513 17:47:36 INFO     在测试集上评估...
+2025-0513 17:47:40 INFO     测试集 - precision: 0.955653, recall: 0.951362, fscore: 0.953503
+2025-0513 17:47:40 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:47:40 INFO     模型已保存至 ./save/model_epoch3.pkl
+2025-0513 17:48:16 DEBUG    epoch 4-step 100 loss: 1.503228
+2025-0513 17:48:28 INFO     在验证集上评估...
+2025-0513 17:48:47 INFO     验证集 - precision: 0.958655, recall: 0.952084, fscore: 0.955358
+2025-0513 17:48:47 INFO     在测试集上评估...
+2025-0513 17:48:50 INFO     测试集 - precision: 0.958415, recall: 0.951543, fscore: 0.954967
+2025-0513 17:48:50 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:48:50 INFO     模型已保存至 ./save/model_epoch4.pkl
+2025-0513 17:49:28 DEBUG    epoch 5-step 100 loss: 0.983576
+2025-0513 17:49:40 INFO     在验证集上评估...
+2025-0513 17:50:00 INFO     验证集 - precision: 0.958584, recall: 0.954870, fscore: 0.956724
+2025-0513 17:50:00 INFO     在测试集上评估...
+2025-0513 17:50:04 INFO     测试集 - precision: 0.958223, recall: 0.953607, fscore: 0.955909
+2025-0513 17:50:04 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:50:04 INFO     模型已保存至 ./save/model_epoch5.pkl
+2025-0513 17:50:40 DEBUG    epoch 6-step 100 loss: 0.668621
+2025-0513 17:50:51 INFO     在验证集上评估...
+2025-0513 17:51:13 INFO     验证集 - precision: 0.961572, recall: 0.955034, fscore: 0.958292
+2025-0513 17:51:13 INFO     在测试集上评估...
+2025-0513 17:51:17 INFO     测试集 - precision: 0.962230, recall: 0.954947, fscore: 0.958575
+2025-0513 17:51:17 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:51:17 INFO     模型已保存至 ./save/model_epoch6.pkl
+2025-0513 17:51:53 DEBUG    epoch 7-step 100 loss: 0.457841
+2025-0513 17:52:06 INFO     在验证集上评估...
+2025-0513 17:52:26 INFO     验证集 - precision: 0.961555, recall: 0.956162, fscore: 0.958850
+2025-0513 17:52:26 INFO     在测试集上评估...
+2025-0513 17:52:30 INFO     测试集 - precision: 0.961253, recall: 0.955961, fscore: 0.958600
+2025-0513 17:52:30 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:52:30 INFO     模型已保存至 ./save/model_epoch7.pkl
+2025-0513 17:53:07 DEBUG    epoch 8-step 100 loss: 0.357829
+2025-0513 17:53:18 INFO     在验证集上评估...
+2025-0513 17:53:38 INFO     验证集 - precision: 0.961821, recall: 0.955366, fscore: 0.958583
+2025-0513 17:53:38 INFO     在测试集上评估...
+2025-0513 17:53:41 INFO     测试集 - precision: 0.961488, recall: 0.953897, fscore: 0.957677
+2025-0513 17:53:41 INFO     模型已保存至 ./save/model_epoch8.pkl
+2025-0513 17:54:16 DEBUG    epoch 9-step 100 loss: 0.276362
+2025-0513 17:54:29 INFO     在验证集上评估...
+2025-0513 17:54:49 INFO     验证集 - precision: 0.962182, recall: 0.956700, fscore: 0.959433
+2025-0513 17:54:49 INFO     在测试集上评估...
+2025-0513 17:54:52 INFO     测试集 - precision: 0.961620, recall: 0.956396, fscore: 0.959001
+2025-0513 17:54:52 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:54:52 INFO     模型已保存至 ./save/model_epoch9.pkl
+2025-0513 17:55:29 DEBUG    epoch 10-step 100 loss: 0.223876
+2025-0513 17:55:43 INFO     在验证集上评估...
+2025-0513 17:56:02 INFO     验证集 - precision: 0.962466, recall: 0.956456, fscore: 0.959451
+2025-0513 17:56:02 INFO     在测试集上评估...
+2025-0513 17:56:06 INFO     测试集 - precision: 0.961541, recall: 0.956178, fscore: 0.958852
+2025-0513 17:56:06 INFO     发现更好的模型，已保存至 ./save/best_model.pkl
+2025-0513 17:56:06 INFO     模型已保存至 ./save/model_epoch10.pkl
+2025-0513 17:56:42 DEBUG    epoch 11-step 100 loss: 0.207182
+2025-0513 17:56:54 INFO     在验证集上评估...
+2025-0513 17:57:15 INFO     验证集 - precision: 0.962572, recall: 0.955699, fscore: 0.959123
+2025-0513 17:57:15 INFO     在测试集上评估...
+2025-0513 17:57:19 INFO     测试集 - precision: 0.962651, recall: 0.955853, fscore: 0.959240
+2025-0513 17:57:19 INFO     模型已保存至 ./save/model_epoch11.pkl
+2025-0513 17:57:58 DEBUG    epoch 12-step 100 loss: 0.224545
+2025-0513 17:58:09 INFO     在验证集上评估...
+2025-0513 17:58:28 INFO     验证集 - precision: 0.962115, recall: 0.953978, fscore: 0.958029
+2025-0513 17:58:28 INFO     在测试集上评估...
+2025-0513 17:58:32 INFO     测试集 - precision: 0.960755, recall: 0.953100, fscore: 0.956912
+2025-0513 17:58:32 INFO     模型已保存至 ./save/model_epoch12.pkl
+2025-0513 17:59:07 DEBUG    epoch 13-step 100 loss: 0.319823
+2025-0513 17:59:21 INFO     在验证集上评估...
+2025-0513 17:59:40 INFO     验证集 - precision: 0.958578, recall: 0.952484, fscore: 0.955522
+2025-0513 17:59:40 INFO     在测试集上评估...
+2025-0513 17:59:44 INFO     测试集 - precision: 0.956793, recall: 0.951144, fscore: 0.953960
+2025-0513 17:59:44 INFO     模型已保存至 ./save/model_epoch13.pkl
+2025-0513 18:00:20 DEBUG    epoch 14-step 100 loss: 0.547720
+2025-0513 18:00:31 INFO     在验证集上评估...
+2025-0513 18:00:50 INFO     验证集 - precision: 0.957535, recall: 0.951790, fscore: 0.954654
+2025-0513 18:00:50 INFO     在测试集上评估...
+2025-0513 18:00:54 INFO     测试集 - precision: 0.956855, recall: 0.950167, fscore: 0.953499
+2025-0513 18:00:54 INFO     模型已保存至 ./save/model_epoch14.pkl

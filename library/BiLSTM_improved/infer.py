@@ -44,10 +44,9 @@ if __name__ == '__main__':
         # x_char_types_test = pickle.load(inp)
 
     # --- 实例化模型并加载状态 ---
-    # 需要知道模型训练时的参数，这里假设使用 run.py 中的默认值或需要从某处获取
-    # 如果不确定，需要检查训练时的配置
-    embedding_dim = 200 # 假设值，应与训练时一致
-    hidden_dim = 300    # 假设值，应与训练时一致
+    # 使用与训练时相同的参数
+    embedding_dim = 500 # 改为与训练时一致
+    hidden_dim = 1024   # 改为与训练时一致
     
     # 实例化模型结构
     model = CWS(len(word2id), tag2id, embedding_dim, hidden_dim, char_type_vocab_size)

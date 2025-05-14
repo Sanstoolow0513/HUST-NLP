@@ -9,7 +9,7 @@ SAVE_PATH = "./ner_datasave.pkl"
 
 # create id2tag
 unique = set()
-with open('ner_train.txt', 'r', encoding='utf-8')as f:
+with open('ner_train.txt', 'r', encoding="utf-8")as f:
     for line in f:
         try:
             unique.update([line.strip('\n').split(' ')[1]])
@@ -60,7 +60,7 @@ def handle_data():
     y_valid = []
 
     wordnum = 0
-    with open(TRAIN_DATA, 'r', encoding='utf-8') as ifp:  # Already correct, keep as-is
+    with open(TRAIN_DATA, 'r', encoding="utf-8") as ifp:
         line_x = []
         line_y = []
         for line in ifp:
